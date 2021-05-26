@@ -21,6 +21,11 @@ If you want to install the script you have to gave execution permission and laun
   $ chmod u+x uninstall.sh
   $ ./uninstall.sh
 ```
+<h2>HOW TO USE</h2>
+
+```
+  $ usage: extract /path/to/file1 /path/to/file2 ...
+```
 <h2>To be Added</h2>
 Just a few things I'm working on for this project
 <ul>
