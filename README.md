@@ -16,6 +16,7 @@ If you want to install the script you have to gave execution permission and laun
   $ ./install.sh
 ```
 <h2>UNINSTALLATION</h2>
+
 ```
   $ chmod u+x uninstall.sh
   $ ./uninstall.sh
