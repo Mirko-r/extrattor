@@ -64,6 +64,6 @@ for i ; do
         echo "'${args[i]}' not a valid file"
     fi
     echo ""
-    echo "::Done!"
+    echo "Done!"
     echo ""
 done
