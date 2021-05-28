@@ -1,6 +1,7 @@
+<h1> DECRIPTION </h1>
 Extractor is a simple Linux utility to extract one or more archives from the terminal
 
-<h3>NEEDED:</h3>
+<h3>DEPENDENCIES</h3>
     <li> pv </li>
     
 <h2>PORTABLE</h2>
@@ -29,8 +30,8 @@ If you want to install the script you have to gave execution permission and laun
 ```
   $ usage: extract /path/to/file1 /path/to/file2 ...
 ```
-<h2>To be Added</h2>
-Just a few things I'm working on for this project
+<h2>TO DO</h2>
+
 <ul>
 <li> .deb package for Ubuntu/Debian distros
 <li> PKGBUILD for Arch distros
