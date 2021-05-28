@@ -24,21 +24,21 @@ for i ; do
    if [ "${args[i]}" ]; then
 
         case "${args[i]}" in
-            *.tar.xz)   tar -xvf "${args[i]}" >/dev/null | print                          ;;
-            *.tar.bz2)  tar -jxvf "${args[i]}" >/dev/null | print                         ;;
-            *.tar.gz)   tar -zxvf "${args[i]}" >/dev/null | print                         ;;
-            *.bz2)      bunzip2 "${args[i]}" >/dev/null | print                           ;;
-            *.dmg)      hdiutil mount "${args[i]}" >/dev/null | print                     ;;
-            *.gz)       gunzip "${args[i]}" >/dev/null | print                            ;;
-            *.tar)      tar -xvf "${args[i]}" >/dev/null | print                          ;;
-            *.tbz2)     tar -jxvf "${args[i]}" >/dev/null | print                         ;;
-            *.tgz)      tar -zxvf "${args[i]}" >/dev/null | print                         ;;
-            *.zip)      unzip  "${args[i]}" >/dev/null | print                            ;;
-            *.pax)      cat "${args[i]}" | pax -r >/dev/null | print                      ;;
-            *.pax.z)    uncompress "${args[i]}"  --stdout | pax -r >/dev/null | print     ;;
-            *.rar)      7z x "${args[i]}" >/de/null | print                               ;;
-            *.z)        uncompress "${args[i]}" >/dev/null | print                        ;;
-            *.7z)       7z x "${args[i]}"  >/dev/null | print                             ;;
+            *.tar.xz)   tar -xvf "${args[i]}" | print                          ;;
+            *.tar.bz2)  tar -jxvf "${args[i]}" | print                         ;;
+            *.tar.gz)   tar -zxvf "${args[i]}" | print                         ;;
+            *.bz2)      bunzip2 "${args[i]}" | print                           ;;
+            *.dmg)      hdiutil mount "${args[i]}" | print                     ;;
+            *.gz)       gunzip "${args[i]}" | print                            ;;
+            *.tar)      tar -xvf "${args[i]}" | print                          ;;
+            *.tbz2)     tar -jxvf "${args[i]}" | print                         ;;
+            *.tgz)      tar -zxvf "${args[i]}" | print                         ;;
+            *.zip)      unzip  "${args[i]}" | print                            ;;
+            *.pax)      cat "${args[i]}" | pax -r | print                      ;;
+            *.pax.z)    uncompress "${args[i]}"  --stdout | pax -r | print     ;;
+            *.rar)      7z x "${args[i]}" | print                              ;;
+            *.z)        uncompress "${args[i]}" | print                        ;;
+            *.7z)       7z x "${args[i]}" | print                              ;;
             *)          echo "'${args[i]}' cannot be extracted" | print        ;;
         esac
 
