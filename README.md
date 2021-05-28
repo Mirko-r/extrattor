@@ -1,5 +1,8 @@
 Extractor is a simple Linux utility to extract one or more archives from the terminal
 
+<h3>NEEDED:</h3>
+    <li> pv </li>
+    
 <h2>PORTABLE</h2>
 You have only to gave execution permission and launch the .sh script
 
