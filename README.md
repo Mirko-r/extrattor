@@ -1,4 +1,4 @@
-Extractor is a simple utility to extract one or more archives from the terminal
+Extractor is a simple Linux utility to extract one or more archives from the terminal
 
 <h2>PORTABLE</h2>
 You have only to gave execution permission and launch the .sh script
