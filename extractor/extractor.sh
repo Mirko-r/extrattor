@@ -33,7 +33,7 @@ for i ; do
             *.tar)      tar -xvf "${args[i]}" | print                          ;;
             *.tbz2)     tar -jxvf "${args[i]}" | print                         ;;
             *.tgz)      tar -zxvf "${args[i]}" | print                         ;;
-            *.zip)      unzip -q "${args[i]}" | print                            ;;
+            *.zip)      unzip -q "${args[i]}" | print                          ;;
             *.pax)      cat "${args[i]}" | pax -r | print                      ;;
             *.pax.z)    uncompress "${args[i]}"  --stdout | pax -r | print     ;;
             *.rar)      7z x "${args[i]}" | print                              ;;
