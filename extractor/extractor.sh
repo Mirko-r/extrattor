@@ -1,43 +1,44 @@
 #!/bin/bash
 # Mirko Rovere
+SLEEP_DURATION=${SLEEP_DURATION:=0.1}  
 
+progress-bar() {
+  local duration
+  local columns
+  local space_available
+  local fit_to_screen  
+  local space_reserved
+
+  space_reserved=6   
+  duration=${1}
+  columns=$(tput cols)
+  space_available=$(( columns-space_reserved ))
+
+  if (( duration < space_available )); then 
+  	fit_to_screen=1; 
+  else 
+    fit_to_screen=$(( duration / space_available )); 
+    fit_to_screen=$((fit_to_screen+1)); 
+  fi
+
+  already_done() { for ((done=0; done<(elapsed / fit_to_screen) ; done=done+1 )); do printf "▇"; done }
+  remaining() { for (( remain=(elapsed/fit_to_screen) ; remain<(duration/fit_to_screen) ; remain=remain+1 )); do printf " "; done }
+  percentage() { printf "| %s%%" $(( ((elapsed)*100)/(duration)*100/100 )); }
+  clean_line() { printf "\r"; }
+
+  for (( elapsed=1; elapsed<=duration; elapsed=elapsed+1 )); do
+      already_done; remaining; percentage
+      sleep "$SLEEP_DURATION"
+      clean_line
+  done
+  clean_line
+}
 
 print() {
     echo "Extracting '${args[i]}'....."
     echo ""
-    duration=10
-    barsize=$((`tput cols` - 7))
-    unity=$(($barsize / $duration))
-    increment=$(($barsize%$duration))
-    skip=$(($duration/($duration-$increment)))
-    curr_bar=0
-    prev_bar=
-    for (( elapsed=1; elapsed<=$duration; elapsed++ )); do
-        # Elapsed
-        prev_bar=$curr_bar
-        let curr_bar+=$unity
-        [[ $increment -eq 0 ]] || {  
-            [[ $skip -eq 1 ]] &&
-            { [[ $(($elapsed%($duration/$increment))) -eq 0 ]] && let curr_bar++; } ||
-            { [[ $(($elapsed%$skip)) -ne 0 ]] && let curr_bar++; }
-        }
-        [[ $elapsed -eq 1 && $increment -eq 1 && $skip -ne 1 ]] && let curr_bar++
-        [[ $(($barsize-$curr_bar)) -eq 1 ]] && let curr_bar++
-        [[ $curr_bar -lt $barsize ]] || curr_bar=$barsize
-        for (( filled=0; filled<=$curr_bar; filled++ )); do
-            printf "▇"
-        done
-        # Remaining
-        for (( remain=$curr_bar; remain<$barsize; remain++ )); do
-            printf " "
-        done
-        # Percentage
-        printf "| %s%%" $(( ($elapsed*100)/$duration))
-        # Return
-        sleep 0.1
-        printf "\r"
-    done
-echo ""
+    progress-bar 10
+    echo "Done!"
 }
 
 if [ $# -lt 1 ]; then
