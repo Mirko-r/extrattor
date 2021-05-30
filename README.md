@@ -2,9 +2,7 @@
 <img src="https://github.com/Mirko-r/extractor/blob/main/gnome-shell-screenshot-OYDO40.png" border-radius=25px>
 Extractor is a simple Linux utility to extract one or more archives from the terminal
 
-<h3>DEPENDENCIES</h3>
-    <li> pv </li>
-    
+ 
 <h2 align="center">PORTABLE</h2>
 You have only to gave execution permission and launch the .sh script
 
