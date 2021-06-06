@@ -71,7 +71,7 @@ for i ; do
             *.rar)      7z x "${args[i]}" | print                              ;;
             *.z)        uncompress "${args[i]}" | print                        ;;
             *.7z)       7z x "${args[i]}" | print                              ;;
-            *)          echo "'${args[i]}' cannot be extracted" | print        ;;
+            *)          echo "'${args[i]}' cannot be extracted"                ;;
         esac
 
     else
