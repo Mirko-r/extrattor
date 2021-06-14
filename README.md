@@ -1,4 +1,4 @@
-<h1 align="center"> DECRIPTION </h1>
+<h1 align="center"> DESCRIPTION </h1>
 <img src="https://github.com/Mirko-r/extractor/blob/main/gnome-shell-screenshot-OYDO40.png" border-radius=25px>
 Extractor is a simple Linux utility to extract one or more archives from the terminal
 
