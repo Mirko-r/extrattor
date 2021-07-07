@@ -42,7 +42,7 @@ print() {
 }
 
 if [ $# -lt 1 ]; then
-    echo "Usage: extract /path/to/file1 /path/to/file2 ..."
+    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz> <path/file_name_2>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
     exit 1
 fi
 
