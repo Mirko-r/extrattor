@@ -1,6 +1,14 @@
+#
 #!/bin/bash
 # Mirko Rovere
+#
+
 SLEEP_DURATION=${SLEEP_DURATION:=0.1}  
+
+# Ansi color code variables
+red="\e[0;91m"
+reset="\e[0m"
+bold="\e[1m"
 
 progress-bar() {
   local duration
@@ -41,8 +49,14 @@ print() {
     echo "Done!"
 }
 
+print_help(){
+	echo -e "${bold}USAGE:${reset}\n\n extract <path/to/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz> <path/to/file_name_2>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz> [...] "
+	echo -e "\n\n${bold}OPTIONS:${reset}\n\n extract {-h --help} Show the help page"
+        exit 1
+}
+
 if [ $# -lt 1 ]; then
-    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz> <path/file_name_2>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
+    print_help
     exit 1
 fi
 
@@ -51,30 +65,39 @@ set ${!args[@]}
 
 for i ; do
 
-    echo ""
+   echo ""
    
    if [ "${args[i]}" ]; then
 
         case "${args[i]}" in
-            *.tar.xz)   tar -xvf "${args[i]}" | print                          ;;
-            *.tar.bz2)  tar -jxvf "${args[i]}" | print                         ;;
-            *.tar.gz)   tar -zxvf "${args[i]}" | print                         ;;
-            *.bz2)      bunzip2 "${args[i]}" | print                           ;;
-            *.dmg)      hdiutil mount "${args[i]}" | print                     ;;
-            *.gz)       gunzip "${args[i]}" | print                            ;;
-            *.tar)      tar -xvf "${args[i]}" | print                          ;;
-            *.tbz2)     tar -jxvf "${args[i]}" | print                         ;;
-            *.tgz)      tar -zxvf "${args[i]}" | print                         ;;
-            *.zip)      unzip -q "${args[i]}" | print                          ;;
-            *.pax)      cat "${args[i]}" | pax -r | print                      ;;
-            *.pax.z)    uncompress "${args[i]}"  --stdout | pax -r | print     ;;
-            *.rar)      7z x "${args[i]}" | print                              ;;
-            *.z)        uncompress "${args[i]}" | print                        ;;
-            *.7z)       7z x "${args[i]}" | print                              ;;
-            *)          echo "'${args[i]}' cannot be extracted"                ;;
+            
+	    #-------------------------Supported extensions
+	    *.tar.xz)   tar -xvf "${args[i]}" && print                          ;;
+            *.tar.bz2)  tar -jxvf "${args[i]}" && print                         ;;
+            *.tar.gz)   tar -zxvf "${args[i]}" && print                         ;;
+            *.bz2)      bunzip2 "${args[i]}" && print                           ;;
+            *.dmg)      hdiutil mount "${args[i]}" && print                     ;;
+            *.gz)       gunzip "${args[i]}" && print                            ;;
+            *.tar)      tar -xvf "${args[i]}" && print                          ;;
+            *.tbz2)     tar -jxvf "${args[i]}" && print                         ;;
+            *.tgz)      tar -zxvf "${args[i]}" && print                         ;;
+            *.zip)      unzip -q "${args[i]}" && print                          ;;
+            *.pax)      cat "${args[i]}" | pax -r && print                      ;;
+            *.pax.z)    uncompress "${args[i]}"  --stdout | pax -r && print     ;;
+            *.rar)      7z x "${args[i]}" && print                              ;;
+            *.z)        uncompress "${args[i]}" && print                        ;;
+            *.7z)       7z x "${args[i]}" && print                              ;;
+	    
+	    #-------------------------- Parameters
+	    #HELP 
+	    -h)		print_help						;;
+	    --help)	print_help						;;
+	    
+	    #--------------------------- Errors
+	    *.*)	echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' not a valid file${reset}";
+			exit 1										;;
+	    -*)		echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' not found${reset}"	;; 
         esac
+  fi
 
-    else
-        echo "'${args[i]}' not a valid file"
-    fi
 done
