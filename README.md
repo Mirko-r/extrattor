@@ -1,9 +1,11 @@
-<h1 align="center"> DESCRIPTION </h1>
+# Description 
+
 <img src="https://github.com/Mirko-r/extractor/blob/main/gnome-shell-screenshot-OYDO40.png" border-radius=25px>
 Extractor is a simple Linux utility to extract one or more archives from the terminal
 
  
-<h2 align="center">PORTABLE</h2>
+## Portable
+
 You have only to gave execution permission and launch the .sh script
 
 ```
@@ -11,7 +13,9 @@ You have only to gave execution permission and launch the .sh script
   $ chmod u+x extractor.sh
   $ ./extractor.sh
 ```
-<h2 align="center">INSTALLATION</h2>
+
+## Installation
+
 If you want to install the script you have to gave execution permission and launch the install.sh script
 
 ```
@@ -24,7 +28,7 @@ If you want to install the script you have to gave execution permission and laun
   $ chmod u+x uninstall.sh
   $ ./uninstall.sh
 ```
-<h2 align="center">HOW TO USE</h2>
+## How to use
 
 ```
   $ usage: extract /path/to/file1 /path/to/file2 ...
