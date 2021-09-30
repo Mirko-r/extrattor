@@ -22,7 +22,7 @@ If you want to install the script you have to gave execution permission and laun
   $ chmod u+x install.sh
   $ ./install.sh
 ```
-<h2 align="center">UNINSTALLATION</h2>
+## Uninstallation
 
 ```
   $ chmod u+x uninstall.sh
