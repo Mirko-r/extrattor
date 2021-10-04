@@ -52,7 +52,18 @@ print() {
 print_help(){
 	echo -e "${bold}USAGE:${reset}\n\n extract <path/to/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz> <path/to/file_name_2>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz> [...] "
 	echo -e "\n\n${bold}OPTIONS:${reset}\n\n extract {-h --help} Show the help page"
+	echo -e "\n\n extract {-v --version} Print the version"
         exit 1
+}
+
+print_version(){
+	echo -e "Extractor, versione 1.0 (x86_64-pc-linux-gnu)
+Copyright (C) 2021 Mirko Rovere.
+Licenza GPLv3+: GNU GPL versione 3 o successiva <http://gnu.org/licenses/gpl.html>
+
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+"
 }
 
 ask() {
@@ -118,17 +129,21 @@ for i ; do
 
         case "${args[0]}" in
 
-             #-------------------------- Parameters
-	     #HELP 
-	     -h)	print_help						;;
-	     --help)	print_help						;;
+        	  #-------------------------- Parameters
+	          #HELP 
+	          -h)		print_help						;;
+	          --help)	print_help						;;
+		  -v)		print_version						;;
+		  #VERSION
+		  --version)	print_version						;;
+		  -*)		echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' not found${reset}"	;;
 
         esac
 
         case "${args[i]}" in
             
-	    #-------------------------Supported extensions
-	    *.tar.xz)   tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
+	           #-------------------------Supported extensions
+	          *.tar.xz)   tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
             *.tar.bz2)  tar -jxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
             *.tar.gz)   tar -zxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
             *.bz2)      bunzip2 "${args[i]}" && print && prompt "${args[i]}"                           ;;
@@ -144,10 +159,9 @@ for i ; do
             *.z)        uncompress "${args[i]}" && print && prompt "${args[i]}"                        ;;
             *.7z)       7z x "${args[i]}" && print && prompt "${args[i]}"                              ;;
 	    
-	    #--------------------------- Errors
-	     *.*) 	echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' not a valid file${reset}";
-	          	exit 1										;;
-	     -*)	echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' not found${reset}"	;; 
+	          #--------------------------- Errors
+	          *.*)	echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' not a valid file${reset}";
+			      exit 1										;;
         esac
   fi
 
