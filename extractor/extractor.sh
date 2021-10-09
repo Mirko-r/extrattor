@@ -50,16 +50,16 @@ print() {
 }
 
 print_help(){
-	echo -e "${bold}USAGE:${reset}\n\n extractor <path/to/file_name> <path/to/file_name_2> [...] "
+	echo -e "${bold}USAGE:${reset}\n\n extrattor <path/to/file_name> <path/to/file_name_2> [...] "
 	echo -e "\n\n${bold}OPTIONS:${reset}\n\n extractor {-h --help} Show the help page"
-	echo -e "\n\n extractor {-v --version} Print the version"
+	echo -e "\n\n extrattor {-v --version} Print the version"
         exit 1
 }
 
 print_version(){
 	echo -e  "
                  :;,,;:
-              :;;;::::;:::		   Extractor, versione 1.0 (x86_64-pc-linux-gnu)
+              :;;;::::;:::		   Extrattor, versione 1.0 (x86_64-pc-linux-gnu)
           :;;:::::c::ccccc::;;
       ;;;;:::::cccccccc:::ccc::;;;:	   Copyright (C) 2021 Mirko Rovere.
   ::;;;;;::c::::::cccccc:::::::;,;;;;;;	   Licenza GPLv3+: GNU GPL versione 3 o successiva <http://gnu.org/licenses/gpl.html>
