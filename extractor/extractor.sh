@@ -57,12 +57,28 @@ print_help(){
 }
 
 print_version(){
-	echo -e "Extractor, versione 1.0 (x86_64-pc-linux-gnu)
-Copyright (C) 2021 Mirko Rovere.
-Licenza GPLv3+: GNU GPL versione 3 o successiva <http://gnu.org/licenses/gpl.html>
-
-This is free software; you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
+	echo -e  "
+                 :;,,;:
+              :;;;::::;:::		   Extractor, versione 1.0 (x86_64-pc-linux-gnu)
+          :;;:::::c::ccccc::;;
+      ;;;;:::::cccccccc:::ccc::;;;:	   Copyright (C) 2021 Mirko Rovere.
+  ::;;;;;::c::::::cccccc:::::::;,;;;;;;	   Licenza GPLv3+: GNU GPL versione 3 o successiva <http://gnu.org/licenses/gpl.html>
+c,,;;:::;:::::::::::cccccc::;::;;;;,'.'
+c..,;;,,;::::::::::::::;;:::;;,''''....   
+c....'.,;;;;;;:::;;;,;;;;;,,,'...'.....
+c........''',;;;;:;;;,,,,'..'..... ....    This is free software; you are free to change and redistribute it.
+c,,,,'.......','',;,'..''.....  .......    There is NO WARRANTY, to the extent permitted by law.
+c,,,;,'','.......',c'..............''...   
+c'',,,',MM;'''.....c... ......''..'....'
+c..',,',MM,,,,,,...c..........'...'.....
+c......'MM,',,,,',,c''..''...''.......  
+c'........''',,,'',c''..'........   ....
+c,',''........''',,c,'.......... ......'
+     ;',,,........'c'..............':
+         ;''''.....c.   .......';
+            :;,'''.c.......';
+                :,,c'...;
+		  ;c,
 "
 }
 
