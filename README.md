@@ -10,8 +10,8 @@ You have only to gave execution permission and launch the .sh script
 
 ```
 cd extractor
-chmod u+x extractor.sh
-./extractor.sh
+chmod u+x extrattor.sh
+./extrattor.sh
 ```
 
 ## Installation
