@@ -33,7 +33,7 @@ sudo ./uninstall.sh
 ## How to use
 
 ```
-extractor /path/to/file1 /path/to/file2 ...
+extrattor /path/to/file1 /path/to/file2 ...
 ```
 
 ## To do
