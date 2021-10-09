@@ -1,6 +1,6 @@
 # Description
 
-![Extractor](https://github.com/Mirko-r/extractor/blob/main/Extractor1.0.png)
+![Extrattor](https://github.com/Mirko-r/extractor/blob/main/Extrattor1.0.png)
 
 Extractor is a simple Linux utility to extract one or more archives from the terminal
 
