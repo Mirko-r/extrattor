@@ -50,7 +50,7 @@ print() {
 }
 
 print_help(){
-	echo -e "${bold}USAGE:${reset}\n\n extractor <path/to/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz> <path/to/file_name_2>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz> [...] "
+	echo -e "${bold}USAGE:${reset}\n\n extractor <path/to/file_name> <path/to/file_name_2> [...] "
 	echo -e "\n\n${bold}OPTIONS:${reset}\n\n extractor {-h --help} Show the help page"
 	echo -e "\n\n extractor {-v --version} Print the version"
         exit 1
@@ -142,20 +142,24 @@ for i ; do
         case "${args[i]}" in
             
 	           #-------------------------Supported extensions
+		*.arj)      unarj x "${args[i]}" && print && prompt "${args[i]}"    			   ;;
+    		*.ace)      unace x "${args[i]}" && print && prompt "${args[i]}"     			   ;;
+	        *.bz2)      bunzip2 "${args[i]}" && print && prompt "${args[i]}"                           ;;
+	        *.dmg)      hdiutil mount "${args[i]}" && print && prompt "${args[i]}"                     ;;
+	        *.gz)       gunzip "${args[i]}" && print && prompt "${args[i]}"                            ;;
+		*.gpg)	    gpg -d "${args[i]}" | tar -xvzf - && print && prompt "${args[i]}"		   ;;
+		*.rar)      7z x "${args[i]}" && print && prompt "${args[i]}"                              ;;
+	        *.tar)      tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
 	        *.tar.xz)   tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
             	*.tar.bz2)  tar -jxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
             	*.tar.gz)   tar -zxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
-            	*.bz2)      bunzip2 "${args[i]}" && print && prompt "${args[i]}"                           ;;
-            	*.dmg)      hdiutil mount "${args[i]}" && print && prompt "${args[i]}"                     ;;
-            	*.gz)       gunzip "${args[i]}" && print && prompt "${args[i]}"                            ;;
-            	*.tar)      tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
-            	*.tbz2)     tar -jxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
+		*.tar.zst)  tar -xvf "${args[i]}" && print && prompt "${args[i]}"			   ;; 
+		*.tbz2)     tar -jxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
             	*.tgz)      tar -zxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
-            	*.zip)      unzip -q "${args[i]}" && print && prompt "${args[i]}"                          ;;
             	*.pax)      cat "${args[i]}" | pax -r && print && prompt "${args[i]}"                      ;;
             	*.pax.z)    uncompress "${args[i]}"  --stdout | pax -r && print && prompt "${args[i]}"     ;;
-            	*.rar)      7z x "${args[i]}" && print && prompt "${args[i]}"                              ;;
             	*.z)        uncompress "${args[i]}" && print && prompt "${args[i]}"                        ;;
+            	*.zip)      unzip -q "${args[i]}" && print && prompt "${args[i]}"                          ;;
             	*.7z)       7z x "${args[i]}" && print && prompt "${args[i]}"                              ;;
 	    
 	          #--------------------------- Errors
