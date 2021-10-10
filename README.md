@@ -38,6 +38,15 @@ sudo ./uninstall.sh
 extrattor /path/to/file1 /path/to/file2 ...
 ```
 
+## Sample Usage
+
+| Command              | Function                                                                              |
+| -------------------- | ------------------------------------------------------------------------------------- |
+| `extrattor </path/to/file1>  </path/to/file2> <...>`| Extract one or more arhive                                                            |
+| `extrattor -v`       | Print version                                                                         |
+| `extrattor -h`       | Print help                                                                            |
+
+
 ## To do
 
 <ul>
