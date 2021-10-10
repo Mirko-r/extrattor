@@ -32,12 +32,6 @@ chmod u+x uninstall.sh
 sudo ./uninstall.sh
 ```
 
-## How to use
-
-```
-extrattor /path/to/file1 /path/to/file2 ...
-```
-
 ## Sample Usage
 
 | Command              | Function                                                                              |
