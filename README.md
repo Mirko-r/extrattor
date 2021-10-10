@@ -4,6 +4,8 @@
 
 Extractor is a simple Linux utility to extract one or more archives from the terminal
 
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Mirko-r/extractor)
+
 ## Portable
 
 You have only to gave execution permission and launch the .sh script
