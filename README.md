@@ -10,7 +10,7 @@ Extractor is a simple Linux utility to extract one or more archives from the ter
 
 You have only to gave execution permission and launch the .sh script
 
-```
+```bash
 cd extractor
 chmod u+x extrattor.sh
 ./extrattor.sh
