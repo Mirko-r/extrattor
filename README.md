@@ -27,8 +27,7 @@ It is recommended to install the prebuilt binary of Extractor:
 ```bash
 git clone https://github.com/Mirko-r/extractor.git
 cd extractor/extractor-bin
-makepkg
-sudo pacman -U <the-package-file-that-makepkg-produces>
+makepkg -si
 ```
 
 #### Debian\Ubuntu based 
