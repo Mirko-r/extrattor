@@ -18,19 +18,22 @@ chmod u+x extrattor.sh
 
 ## Installation
 
-If you want to install the script you have to gave execution permission and launch the install.sh script
+### Prebuilt Binaries
 
-```
-chmod u+x install.sh
-sudo ./install.sh
+#### Arch linux based
+
+It is recommended to install the prebuilt binary of Extractor:
+
+```bash
+git clone https://github.com/Mirko-r/extractor.git
+cd extractor/extractor-bin
+makepkg
+sudo pacman -U <the-package-file-that-makepkg-produces>
 ```
 
-## Uninstallation
+#### Debian\Ubuntu based 
 
-```
-chmod u+x uninstall.sh
-sudo ./uninstall.sh
-```
+avialable soon
 
 ## Sample Usage
 
@@ -45,6 +48,5 @@ sudo ./uninstall.sh
 
 <ul>
 <li> .deb package for Ubuntu/Debian distros
-<li> PKGBUILD for Arch distros
 <li> Man page
 </ul>
