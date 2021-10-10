@@ -6,7 +6,7 @@ arch=("x86_64")
 depends("unarj""unace""p7zip""tar""pax""gzip""unzip")
 license=("GPL-3.0")
 source=("https://raw.githubusercontent.com/Mirko-r/extractor/main/extractor/extrattor.sh")
-sha512sums=("SKIP")
+sha512sums=("373b512b1d852a2ada57bcc67df9245d915c966cc6b97f9f166514b4888e4f1c")
 
 package(){
     mkdir -p "${pkgdir}/usr/bin"
