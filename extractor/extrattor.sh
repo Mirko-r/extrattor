@@ -10,7 +10,7 @@ red="\e[0;91m"
 reset="\e[0m"
 bold="\e[1m"
 
-progress-bar() {
+progress_bar() {
   local duration
   local columns
   local space_available
@@ -45,7 +45,7 @@ progress-bar() {
 print() {
     echo -e "${bold}Extracting ${args[i]}.....${reset}"
     echo ""
-    progress-bar 10
+    progress_bar 10
     echo -e "${bold}\nDone!${reset}"
 }
 
@@ -123,7 +123,7 @@ prompt(){
   if ask "Do you want to remove $1?" Y; then
 	  echo -e "\n${bold}Removing $1${reset}\n"
 	  rm $1
-    progress-bar 10
+	  progress_bar 10
 	  echo -e "\n${bold}Done!${reset}\n"
   else
 	  echo -e "\n${bold}Aborting..${reset}\n"
