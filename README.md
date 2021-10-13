@@ -38,7 +38,7 @@ avialable soon
 
 | Command              | Function                                                                              |
 | -------------------- | ------------------------------------------------------------------------------------- |
-| `extrattor </path/to/file1>  </path/to/file2> <...>`| Extract one or more arhive                                                            |
+| `extrattor -e </path/to/file1>  </path/to/file2> <...>`| Extract one or more arhive                                                            |
 | `extrattor -v`       | Print version                                                                         |
 | `extrattor -h`       | Print help                                                                            |
 
