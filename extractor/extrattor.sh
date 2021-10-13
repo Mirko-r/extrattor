@@ -53,6 +53,7 @@ print_help(){
 	echo -e "${bold}USAGE:${reset}\n\n extrattor <path/to/file_name> <path/to/file_name_2> [...] "
 	echo -e "\n\n${bold}OPTIONS:${reset}\n\n extractor {-h --help} Show the help page"
 	echo -e "\n\n extrattor {-v --version} Print the version"
+	echo -e "\n\n extractor {-e --extract} <path/to/file1> <path/to/file2> <...> Extract archives"
         exit 1
 }
 
@@ -130,6 +131,45 @@ prompt(){
   fi
 }
 
+extract(){
+	for i ; do
+
+   		echo ""
+   
+   		if [ "${args[i]}" ]; then
+
+        		case "${args[i]}" in
+            
+	           		#-------------------------Supported extensions
+				*.arj)      unarj x "${args[i]}" && print && prompt "${args[i]}"    			   ;;
+    				*.ace)      unace x "${args[i]}" && print && prompt "${args[i]}"     			   ;;
+	        		*.bz2)      bunzip2 "${args[i]}" && print && prompt "${args[i]}"                           ;;
+	        		*.dmg)      hdiutil mount "${args[i]}" && print && prompt "${args[i]}"                     ;;
+	        		*.gz)       gunzip "${args[i]}" && print && prompt "${args[i]}"                            ;;
+				*.gpg)	    gpg -d "${args[i]}" | tar -xvzf - && print && prompt "${args[i]}"		   ;;
+				*.rar)      7z x "${args[i]}" && print && prompt "${args[i]}"                              ;;
+	        		*.tar)      tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
+	        		*.tar.xz)   tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
+            			*.tar.bz2)  tar -jxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
+            			*.tar.gz)   tar -zxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
+				*.tar.zst)  tar -xvf "${args[i]}" && print && prompt "${args[i]}"			   ;; 
+				*.tbz2)     tar -jxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
+            			*.tgz)      tar -zxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
+            			*.pax)      cat "${args[i]}" | pax -r && print && prompt "${args[i]}"                      ;;
+            			*.pax.z)    uncompress "${args[i]}"  --stdout | pax -r && print && prompt "${args[i]}"     ;;
+            			*.z)        uncompress "${args[i]}" && print && prompt "${args[i]}"                        ;;
+            			*.zip)      unzip -q "${args[i]}" && print && prompt "${args[i]}"                          ;;
+            			*.7z)       7z x "${args[i]}" && print && prompt "${args[i]}"                              ;;
+	    
+	          		#--------------------------- Errors
+	          		*.*)	echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' not a valid file${reset}";
+			      	exit 1										;;
+        		esac
+  		fi
+
+	done
+}
+
 if [ $# -lt 1 ]; then
     print_help
     exit 1
@@ -137,51 +177,17 @@ fi
 
 args=( "$@")
 set ${!args[@]}
-for i ; do
 
-   echo ""
-   
-   if [ "${args[i]}" ]; then
+case "${args[0]}" in
 
-        case "${args[0]}" in
+        #-------------------------- Parameters
+	#HELP 
+	-h)		print_help						;;
+	--help)		print_help						;;
+	-v)		print_version						;;
+	--version)	print_version						;;
+	-e)		extract "${!args[@]}"					;;
+	--extract)	extract "${!args[@]}"					;;
+	-*)		echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' not found${reset}"	;;
 
-        	  #-------------------------- Parameters
-	          #HELP 
-	          -h)		print_help						;;
-	          --help)	print_help						;;
-		  -v)		print_version						;;
-		  --version)	print_version						;;
-		  -*)		echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' not found${reset}"	;;
-
-        esac
-
-        case "${args[i]}" in
-            
-	           #-------------------------Supported extensions
-		*.arj)      unarj x "${args[i]}" && print && prompt "${args[i]}"    			   ;;
-    		*.ace)      unace x "${args[i]}" && print && prompt "${args[i]}"     			   ;;
-	        *.bz2)      bunzip2 "${args[i]}" && print && prompt "${args[i]}"                           ;;
-	        *.dmg)      hdiutil mount "${args[i]}" && print && prompt "${args[i]}"                     ;;
-	        *.gz)       gunzip "${args[i]}" && print && prompt "${args[i]}"                            ;;
-		*.gpg)	    gpg -d "${args[i]}" | tar -xvzf - && print && prompt "${args[i]}"		   ;;
-		*.rar)      7z x "${args[i]}" && print && prompt "${args[i]}"                              ;;
-	        *.tar)      tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
-	        *.tar.xz)   tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
-            	*.tar.bz2)  tar -jxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
-            	*.tar.gz)   tar -zxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
-		*.tar.zst)  tar -xvf "${args[i]}" && print && prompt "${args[i]}"			   ;; 
-		*.tbz2)     tar -jxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
-            	*.tgz)      tar -zxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
-            	*.pax)      cat "${args[i]}" | pax -r && print && prompt "${args[i]}"                      ;;
-            	*.pax.z)    uncompress "${args[i]}"  --stdout | pax -r && print && prompt "${args[i]}"     ;;
-            	*.z)        uncompress "${args[i]}" && print && prompt "${args[i]}"                        ;;
-            	*.zip)      unzip -q "${args[i]}" && print && prompt "${args[i]}"                          ;;
-            	*.7z)       7z x "${args[i]}" && print && prompt "${args[i]}"                              ;;
-	    
-	          #--------------------------- Errors
-	          *.*)	echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' not a valid file${reset}";
-			      exit 1										;;
-        esac
-  fi
-
-done
+esac
