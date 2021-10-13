@@ -51,9 +51,9 @@ print() {
 
 print_help(){
 	echo -e "${bold}USAGE:${reset}\n\n extrattor <path/to/file_name> <path/to/file_name_2> [...] "
-	echo -e "\n\n${bold}OPTIONS:${reset}\n\n extractor {-h --help} Show the help page"
+	echo -e "\n\n${bold}OPTIONS:${reset}\n\n extrattor {-h --help} Show the help page"
 	echo -e "\n\n extrattor {-v --version} Print the version"
-	echo -e "\n\n extractor {-e --extract} <path/to/file1> <path/to/file2> <...> Extract archives"
+	echo -e "\n\n extrattor {-e --extract} <path/to/file1> <path/to/file2> <...> Extract archives"
         exit 1
 }
 
@@ -162,7 +162,7 @@ extract(){
             			*.7z)       7z x "${args[i]}" && print && prompt "${args[i]}"                              ;;
 	    
 	          		#--------------------------- Errors
-	          		*.*)	echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' not a valid file${reset}";
+	          		*.*)	echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' is not a supported file${reset}";
 			      	exit 1										;;
         		esac
   		fi
@@ -188,6 +188,6 @@ case "${args[0]}" in
 	--version)	print_version						;;
 	-e)		extract "${!args[@]}"					;;
 	--extract)	extract "${!args[@]}"					;;
-	-*)		echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' not found${reset}"	;;
+	-*)		echo -e "${red}${bold}ERROR: ${reset}${red}'${args[0]}' command  not found${reset}"	;;
 
 esac
