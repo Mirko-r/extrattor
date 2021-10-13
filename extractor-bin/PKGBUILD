@@ -1,5 +1,5 @@
 pkgname="extrattor"
-pkgver="1.1"
+pkgver="1.1.1"
 pkgrel="1"
 pkgdesc="A simple Linux utility to extract one or more archives from the terminal"
 arch=("x86_64")
