@@ -1,6 +1,6 @@
 pkgname="extrattor"
-pkgver="1.1.1"
-pkgrel="1"
+pkgver="beta"
+pkgrel="5"
 pkgdesc="A simple Linux utility to extract one or more archives from the terminal"
 arch=("x86_64")
 depends=('unarj' 'unace' 'p7zip' 'tar' 'pax' 'gzip' 'unzip')
