@@ -22,7 +22,22 @@ chmod u+x extrattor.sh
 
 #### Arch linux based
 
-It is recommended to install the prebuilt binary of Extractor:
+It is recommended to install one version of the prebuilt binary of Extractor:
+
+- go to [this page](https://github.com/Mirko-r/extractor/releases) and select a release
+- download the PKGBUILD
+- open your terminal and type:
+```bash
+makepkg -si
+```
+
+#### Debian\Ubuntu based 
+
+available soon
+
+### Github version (unstable)
+
+#### Arch linux based
 
 ```bash
 git clone https://github.com/Mirko-r/extractor.git
@@ -30,9 +45,9 @@ cd extractor/extractor-bin
 makepkg -si
 ```
 
-#### Debian\Ubuntu based 
+##### Debian\Ubuntu based
 
-avialable soon
+available son
 
 ## Sample Usage
 
