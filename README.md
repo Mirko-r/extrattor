@@ -47,7 +47,11 @@ makepkg -si
 
 ##### Debian\Ubuntu based
 
-available son
+```bash
+git clone https://github.com/Mirko-r/extractor.git
+cd extractor/extractor
+install -Dm0755 extrattor.sh /usr/bin/extrattor
+```
 
 ## Sample Usage
 
