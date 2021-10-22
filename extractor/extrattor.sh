@@ -1,6 +1,5 @@
-#
 #!/bin/bash
-# Mirko Rovere
+#Mirko Rovere
 #
 
 SLEEP_DURATION=${SLEEP_DURATION:=0.1}  
@@ -50,36 +49,38 @@ print() {
 }
 
 print_help(){
-	echo -e "${bold}USAGE:${reset}\n\n extrattor <path/to/file_name> <path/to/file_name_2> [...] "
+	echo -e "${bold}USAGE:${reset}\n\n extrattor -[option] <path/to/file_name> <path/to/file_name_2> <...> "
 	echo -e "\n\n${bold}OPTIONS:${reset}\n\n extrattor {-h --help} Show the help page"
 	echo -e "\n\n extrattor {-v --version} Print the version"
-	echo -e "\n\n extrattor {-e --extract} <path/to/file1> <path/to/file2> <...> Extract archives"
+	echo -e "\n\n extrattor {-e --extract} Extract archives"
+	echo -e "\n\n extrattor [-i --info] Get info about archives"
+	echo -e "\n\n extrattor [-p --password] Protect archives with password"
         exit 1
 }
 
 print_version(){
 	echo -e  "
-                 :;,,;:
-              :;;;::::;:::		   Extrattor, versione 1.0 (x86_64-pc-linux-gnu)
-          :;;:::::c::ccccc::;;
-      ;;;;:::::cccccccc:::ccc::;;;:	   Copyright (C) 2021 Mirko Rovere.
-  ::;;;;;::c::::::cccccc:::::::;,;;;;;;	   Licenza GPLv3+: GNU GPL versione 3 o successiva <http://gnu.org/licenses/gpl.html>
-c,,;;:::;:::::::::::cccccc::;::;;;;,'.'
-c..,;;,,;::::::::::::::;;:::;;,''''....   
-c....'.,;;;;;;:::;;;,;;;;;,,,'...'.....
-c........''',;;;;:;;;,,,,'..'..... ....    This is free software; you are free to change and redistribute it.
-c,,,,'.......','',;,'..''.....  .......    There is NO WARRANTY, to the extent permitted by law.
-c,,,;,'','.......',c'..............''...   
-c'',,,',MM;'''.....c... ......''..'....'
-c..',,',MM,,,,,,...c..........'...'.....
-c......'MM,',,,,',,c''..''...''.......  
-c'........''',,,'',c''..'........   ....
-c,',''........''',,c,'.......... ......'
-     ;',,,........'c'..............':
-         ;''''.....c.   .......';
-            :;,'''.c.......';
-                :,,c'...;
-		  ;c,
+                ${bold}:;,,;:${reset}
+              ${bold}:;;;::::;:::${reset}		   Extrattor, versione 1.5 (x86_64-pc-linux-gnu)
+         ${bold}:;;:::::c::ccccc::;;${reset}
+     ${bold};;;;:::::cccccccc:::ccc::;;;:${reset}	   Copyright (C) 2021 Mirko Rovere.
+  ${bold}::;;;;;::c::::::cccccc:::::::;,;;;;;; ${reset}	   Licenza GPLv3+: GNU GPL versione 3 o successiva <http://gnu.org/licenses/gpl.html>
+${bold}c,,;;:::;:::::::::::cccccc::;::;;;;,'.' ${reset}
+${bold}c..,;;,,;::::::::::::::;;:::;;,''''.... ${reset}  
+${bold}c....'.,;;;;;;:::;;;,;;;;;,,,'...'..... ${reset}
+${bold}c........''',;;;;:;;;,,,,'..'..... .... ${reset}   This is free software; you are free to change and redistribute it.
+${bold}c,,,,'.......','',;,'..''.....  ....... ${reset}   There is NO WARRANTY, to the extent permitted by law.
+${bold}c,,,;,'','.......',c'..............''...${reset}   
+${bold}c'',,,',MM;'''.....c... ......''..'....'${reset}
+${bold}c..',,',MM,,,,,,...c..........'...'.....${reset}
+${bold}c......'MM,',,,,',,c''..''...''.......  ${reset}
+${bold}c'........''',,,'',c''..'........   ....${reset}
+${bold}c,',''........''',,c,'.......... ......'${reset}
+     ${bold};',,,........'c'..............':${reset}
+         ${bold};''''.....c.   .......';${reset}
+            ${bold}:;,'''.c.......';${reset}
+                ${bold}:,,c'...;${reset}
+		  ${bold};c,${reset}
 "
 }
 
@@ -123,7 +124,7 @@ prompt(){
   echo ""
   if ask "Do you want to remove $1?" Y; then
 	  echo -e "\n${bold}Removing $1${reset}\n"
-	  rm $1
+	  rm "$1"
 	  progress_bar 10
 	  echo -e "\n${bold}Done!${reset}\n"
   else
@@ -170,13 +171,50 @@ extract(){
 	done
 }
 
+info(){
+	for i; do
+
+		echo ""
+
+		if [ "${args[i]}" ]; then
+			case "${args[i]}" in
+
+				*.zip) unzip -l "${args[i]}";;
+
+				*.*) echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' is not a supported file${reset}";
+				exit 1											;;
+			esac
+		fi
+
+	done
+}
+
+password(){
+	for i; do
+
+		echo ""
+
+		if [ "${args[i]}" ]; then
+			case "${args[i]}" in
+
+				*.zip) zip -e "${args[i]}_protected.zip" "${args[i]}";;
+
+				*.*) echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' is not a supported file${reset}";
+				exit 1											;;
+			esac
+		fi
+
+	done
+
+}
+
 if [ $# -lt 1 ]; then
     print_help
     exit 1
 fi
 
 args=( "$@")
-set ${!args[@]}
+set "${!args[@]}"
 
 case "${args[0]}" in
 
@@ -188,6 +226,10 @@ case "${args[0]}" in
 	--version)	print_version						;;
 	-e)		extract "${!args[@]}"					;;
 	--extract)	extract "${!args[@]}"					;;
+	-i)		info "${!args[@]}"					;;
+	--info)		info "${!args[@]}"					;;
+	-p)		password "${!args[@]}"					;;
+	--password)	password "${!args[@]}"					;;
 	-*)		echo -e "${red}${bold}ERROR: ${reset}${red}'${args[0]}' command  not found${reset}"	;;
 
 esac
