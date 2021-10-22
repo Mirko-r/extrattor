@@ -65,5 +65,5 @@ available soon
 <ul>
 <li> .deb package for Ubuntu/Debian distros
 <li> Man page
-<li> -i option to get info about archives
+<li> more archives format support for -i and -p parameters
 </ul>
