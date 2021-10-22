@@ -4,7 +4,7 @@
 
 Extractor is a simple Linux utility to extract one or more archives from the terminal
 
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Mirko-r/extractor) ![GitHub](https://img.shields.io/github/license/Mirko-r/extractor) ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/Mirko-r/extractor) ![GitHub last commit](https://img.shields.io/github/last-commit/Mirko-r/extractor)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Mirko-r/extractor) ![GitHub](https://img.shields.io/github/license/Mirko-r/extractor) ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/Mirko-r/extractor) ![GitHub last commit](https://img.shields.io/github/last-commit/Mirko-r/extractor) ![GitHub all releases](https://img.shields.io/github/downloads/Mirko-r/extractor/total)
 
 ## Portable
 
