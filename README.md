@@ -53,7 +53,9 @@ available soon
 
 | Command              | Function                                                                              |
 | -------------------- | ------------------------------------------------------------------------------------- |
-| `extrattor -e </path/to/file1>  </path/to/file2> <...>`| Extract one or more arhive                                                            |
+| `extrattor -e </path/to/file1>  </path/to/file2> <...>`| Extract one or more arhive                          |
+| `extrattor -i </path/to/file1>  </path/to/file2> <...>`| Get info about archives (work only with .zip)       |
+| `extrattor -p </path/to/file1>  </path/to/file2> <...>`| Protect archives with password (work only with zip) |
 | `extrattor -v`       | Print version                                                                         |
 | `extrattor -h`       | Print help                                                                            |
 
