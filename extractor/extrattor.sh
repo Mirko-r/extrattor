@@ -52,7 +52,7 @@ print_help(){
 	echo -e "${bold}USAGE:${reset}\n\n extrattor -[option] <path/to/file_name> <path/to/file_name_2> <...> "
 	echo -e "\n\n${bold}OPTIONS:${reset}\n\n extrattor {-h --help} Show the help page"
 	echo -e "\n\n extrattor {-v --version} Print the version"
-	echo -e "\n\n extrattor {-e --extract} Extract archives"
+	echo -e "\n\n extrattor {-x --extract} Extract archives"
 	echo -e "\n\n extrattor [-i --info] Get info about archives"
 	echo -e "\n\n extrattor [-p --password] Protect archives with password"
         exit 1
@@ -224,7 +224,7 @@ case "${args[0]}" in
 	--help)		print_help						;;
 	-v)		print_version						;;
 	--version)	print_version						;;
-	-e)		extract "${!args[@]}"					;;
+	-x)		extract "${!args[@]}"					;;
 	--extract)	extract "${!args[@]}"					;;
 	-i)		info "${!args[@]}"					;;
 	--info)		info "${!args[@]}"					;;
