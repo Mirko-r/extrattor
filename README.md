@@ -66,4 +66,5 @@ available soon
 <li> .deb package for Ubuntu/Debian distros
 <li> Man page
 <li> more archives format support for -i and -p parameters
+<Li> add encrypt/decrypt functions
 </ul>
