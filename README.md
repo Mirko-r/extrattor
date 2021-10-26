@@ -59,7 +59,17 @@ available soon
 | `extrattor -v`       | Print version                                                                         |
 | `extrattor -h`       | Print help                                                                            |
 
+## Release History
 
+* 1.1.1
+    * FIX: bugfix
+* 1.1.0
+    * ADD: Add `-e` parameter to extract archives
+* 1.0.1
+    * FIX: bugfix
+* 1.0.0
+    * Initial release
+  
 ## To do
 
 <ul>
