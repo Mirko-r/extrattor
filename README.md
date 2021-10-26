@@ -78,3 +78,11 @@ available soon
 <li> more archives format support for -i and -p parameters
 <Li> add encrypt/decrypt functions
 </ul>
+
+## Contributing
+
+1. Fork it (<https://github.com/Mirko-r/extractor/fork>)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
