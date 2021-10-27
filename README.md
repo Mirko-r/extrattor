@@ -61,6 +61,10 @@ available soon
 
 ## Release History
 
+* 1.5.0
+    * ADD: Add `-i` parameter to get info about archives
+    * ADD: Add `-P` parameter to protect archives with password
+    * CHANGE: change `-e` paramater to `-x` in order to follow the standard
 * 1.1.1
     * FIX: bugfix
 * 1.1.0
