@@ -62,8 +62,8 @@ available soon
 ## Release History
 
 * 1.5.0
-    * ADD: Add `-i` parameter to get info about archives
-    * ADD: Add `-P` parameter to protect archives with password
+    * ADD: Add `-i` parameter to get info about archives (only .zip)
+    * ADD: Add `-P` parameter to protect archives with password (only .zip)
     * CHANGE: change `-e` paramater to `-x` in order to follow the standard
 * 1.1.1
     * FIX: bugfix
