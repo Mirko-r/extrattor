@@ -135,7 +135,8 @@ prompt(){
 }
 
 extract(){
-	i = 1
+	set "${!args[@]}"
+	
 	for i ; do
 
    		echo ""
@@ -175,6 +176,8 @@ extract(){
 }
 
 info(){
+	set "${!args[@]}"
+
 	for i; do
 
 		echo ""
@@ -193,6 +196,8 @@ info(){
 }
 
 password(){
+	set "${!args[@]}"
+
 	for i; do
 
 		echo ""
@@ -217,10 +222,8 @@ fi
 
 args=("$@")
 
-set "${args[@]}"
-
 #-------------------------- Parameters
-while getopts hvx:i:p: par;do
+while getopts hvxip: par;do
 	case $par in
 		h)		print_help 0						;;
 #		--help)		print_help						;;
