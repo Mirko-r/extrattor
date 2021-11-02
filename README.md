@@ -73,15 +73,6 @@ available soon
     * FIX: bugfix
 * 1.0.0
     * Initial release
-  
-## To do
-
-<ul>
-<li> .deb package for Ubuntu/Debian distros
-<li> Man page
-<li> more archives format support for -i and -p parameters
-<Li> add encrypt/decrypt functions
-</ul>
 
 ## Contributing
 
