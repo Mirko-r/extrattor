@@ -229,7 +229,6 @@ while getopts hvx:i:p: par;do
 #		--info)		info "${!args[@]}"					;;
 		p)		password "${args[@]}"					;;
 #		--password)	password "${!args[@]}"					;;
-#old#		*)		echo -e "${red}${bold}ERROR: ${reset}${red}'${args[0]}' command  not found${reset}";;
 		?)		print_help 2
 				;;
 	esac
