@@ -49,13 +49,15 @@ print() {
 }
 
 print_help(){
-	echo -e "${bold}USAGE:${reset}\n\n extrattor -[option] <path/to/file_name> <path/to/file_name_2> <...> "
-	echo -e "\n\n${bold}OPTIONS:${reset}\n\n extrattor {-h --help} Show the help page"
-	echo -e "\n\n extrattor {-v --version} Print the version"
-	echo -e "\n\n extrattor {-x --extract} Extract archives"
-	echo -e "\n\n extrattor [-i --info] Get info about archives"
-	echo -e "\n\n extrattor [-p --password] Protect archives with password"
-        exit 1
+	echo -e "${bold}USAGE:${reset}\n"
+	echo -e "$0 [options] <path/to/archive> <path/to/archive2> <...> "
+	echo -e "\n${bold}OPTIONS:${reset}\n"
+	echo -e "$0 {-h | --help} Show the help page"
+	echo -e "$0 {-v | --version} Print the version"
+	echo -e "$0 {-x | --extract} Extract archives"
+	echo -e "$0 [-i | --info] Get info about archives"
+	echo -e "$0 [-p | --password] Protect archives with password"
+	exit $1
 }
 
 print_version(){
@@ -209,27 +211,26 @@ password(){
 }
 
 if [ $# -lt 1 ]; then
-    print_help
-    exit 1
+    print_help 1
 fi
 
-args=( "$@")
-set "${!args[@]}"
+args=("$@")
 
-case "${args[0]}" in
-
-        #-------------------------- Parameters
-	#HELP 
-	-h)		print_help						;;
-	--help)		print_help						;;
-	-v)		print_version						;;
-	--version)	print_version						;;
-	-x)		extract "${!args[@]}"					;;
-	--extract)	extract "${!args[@]}"					;;
-	-i)		info "${!args[@]}"					;;
-	--info)		info "${!args[@]}"					;;
-	-p)		password "${!args[@]}"					;;
-	--password)	password "${!args[@]}"					;;
-	-*)		echo -e "${red}${bold}ERROR: ${reset}${red}'${args[0]}' command  not found${reset}"	;;
-
-esac
+#-------------------------- Parameters
+while getopts hvx:i:p: par;do
+	case $par in
+		h)		print_help 0						;;
+#		--help)		print_help						;;
+		v)		print_version						;;
+#		--version)	print_version						;;
+		x)		extract "${args[@]}"					;;
+#		--extract)	extract "${!args[@]}"					;;
+		i)		info "${args[@]}"					;;
+#		--info)		info "${!args[@]}"					;;
+		p)		password "${args[@]}"					;;
+#		--password)	password "${!args[@]}"					;;
+#old#		*)		echo -e "${red}${bold}ERROR: ${reset}${red}'${args[0]}' command  not found${reset}";;
+		?)		print_help 2
+				;;
+	esac
+done
