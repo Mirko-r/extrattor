@@ -135,6 +135,7 @@ prompt(){
 }
 
 extract(){
+	i = 1
 	for i ; do
 
    		echo ""
@@ -215,6 +216,8 @@ if [ $# -lt 1 ]; then
 fi
 
 args=("$@")
+
+set "${args[@]}"
 
 #-------------------------- Parameters
 while getopts hvx:i:p: par;do
