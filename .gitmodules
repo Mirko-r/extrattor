@@ -1,6 +1,0 @@
-[submodule "AUR/extrattor"]
-	path = AUR/extrattor
-	url = ssh://aur@aur.archlinux.org/extrattor.git
-[submodule "AUR/extrattor-git"]
-	path = AUR/extrattor-git
-	url = ssh://aur@aur.archlinux.org/extrattor-git.git
