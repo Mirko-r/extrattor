@@ -52,7 +52,9 @@ chmod u+x extrattor.sh
 
 #### AUR <!-- extrattor-git -->
 
-Soon™ (seriously though, soon)
+```bash
+paru extrattor-git
+```
 
 ### Manual
 
