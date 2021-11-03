@@ -1,16 +1,15 @@
 # Maintainer: Mirko Rovere
 # Contributor: koraynilay <koray.fra@gmail.com>
 
-pkgname="extrattor-git"
+pkgname="extrattor"
 pkgver="1.2.1"
-pkgrel="3"
+pkgrel="1"
 pkgdesc="A simple Linux utility to extract one or more archives from the terminal"
 arch=("x86_64")
 url="https://github.com/Mirko-r/extrattor"
 depends=('unarj' 'unace' 'p7zip' 'tar' 'pax' 'gzip' 'unzip')
 license=("GPL-3.0")
-conflicts=("extrattor")
-source=("https://raw.githubusercontent.com/Mirko-r/extrattor/main/extrattor/extrattor.sh")
+source=("https://github.com/Mirko-r/extrattor/releases/download/2.0/extrattor.sh")
 sha512sums=("SKIP")
 
 package(){

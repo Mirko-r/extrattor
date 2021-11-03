@@ -8,66 +8,53 @@ Extrattor is a simple Linux utility to extract one or more archives from the ter
 
 # Installation
 
-## Stable
+## Arch Linux and derivatives (AUR)
 
-### Arch Linux and derivatives
+### Stable
+package: [extrattor](https://aur.archlinux.org/packages/extrattor)<br>
 
-#### AUR <!-- extrattor -->
-
-```bash
-paru extrattor
-```
-#### Manual
-
-- go to [the releases page](https://github.com/Mirko-r/extrattor/releases)
-- download the PKGBUILD of the version you want
-- open your terminal in the folder where you donwloaded the PKGBUILD and run:
+Use an [AUR helper](https://wiki.archlinux.org/title/AUR_helpers) or
 
 ```bash
+git clone https://aur.archlinux.org/extrattor.git
 makepkg -si
 ```
 
-### Debian\Ubuntu and derivatives
+### Unstable
+package: [extrattor-git](https://aur.archlinux.org/packages/extrattor-git)<br>
+
+Use an [AUR helper](https://wiki.archlinux.org/title/AUR_helpers) or
+
+```bash
+git clone https://aur.archlinux.org/extrattor-git.git
+makepkg -si
+```
+
+## Debian\Ubuntu and derivatives
 
 Soon™ (seriously though, soon)
 
-### Manual
+## Manual
+
+### Stable
 
 - go to [the releases page](https://github.com/Mirko-r/extrattor/releases)
-- download the PKGBUILD of the version you want
-- open your terminal in the folder where you donwloaded the PKGBUILD and run:
+- download the `extrattor.sh` of the version you want
+- open your terminal in the folder where you downloaded it and run:
 
 ```bash
-makepkg -si
+chmod u+x extrattor.sh
+./extrattor.sh
 ```
 
+### Unstable
+
 ```bash
+git clone https://github.com/Mirko-r/extrattor
 cd extrattor
 chmod u+x extrattor.sh
 ./extrattor.sh
 ```
-## Unstable
-
-### Arch Linux and derivatives
-
-#### AUR <!-- extrattor-git -->
-
-```bash
-paru extrattor-git
-```
-
-### Manual
-
-```bash
-git clone https://github.com/Mirko-r/extrattor.git
-cd extrattor/AUR
-makepkg -si
-```
-
-### Debian\Ubuntu and derivatives <!-- extrattor-git, but dunno if debian has these -->
-
-Soon™
-
 ## Sample Usage
 
 | Command              | Function                                                                              |
@@ -85,7 +72,3 @@ Soon™
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
 5. Create a new Pull Request
-
-<!-- to remove -->
-## Release History
-[See the releases page](https://github.com/Mirko-r/extrattor/releases)
