@@ -14,8 +14,9 @@ Extrattor is a simple Linux utility to extract one or more archives from the ter
 
 #### AUR <!-- extrattor -->
 
-Soon™ (seriously though, soon)
-
+```bash
+paru extrattor
+```
 #### Manual
 
 - go to [the releases page](https://github.com/Mirko-r/extrattor/releases)
