@@ -1,0 +1,3 @@
+[submodule "AUR/--name"]
+	path = AUR/--name
+	url = ssh://aur@aur.archlinux.org/extrattor.git
