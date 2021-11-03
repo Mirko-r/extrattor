@@ -184,8 +184,11 @@ info(){
 
 		if [ "${args[i]}" ]; then
 			case "${args[i]}" in
-
-				*.zip) unzip -l "${args[i]}";;
+				
+				*.tar.bz2)	tar -jtvf "${args[i]}"							;;
+				*.tar.gz) 	tar -ztvf "${args[i]}"							;;
+				*.zip) 		unzip -l "${args[i]}"							;;
+				*.7z)		7z 1 "${args[i]}"							;;
 
 				*.*) echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' is not a supported file${reset}";
 				exit 1											;;
