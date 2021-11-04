@@ -57,13 +57,13 @@ chmod u+x extrattor.sh
 ```
 ## Sample Usage
 
-| Command              | Function                                                                              |
-| -------------------- | ------------------------------------------------------------------------------------- |
-| `extrattor -x </path/to/archive1> </path/to/archive2> <...>`| Extract one or more arhive                          |
-| `extrattor -i </path/to/archive1> </path/to/archive2> <...>`| Get info about archives (work only with .zip)       |
-| `extrattor -p </path/to/archive1> </path/to/archive2> <...>`| Protect archives with password (work only with zip) |
-| `extrattor -v`       | Print version                                                                         |
-| `extrattor -h`       | Print help                                                                            |
+| Command              | Function                                                               |
+| -------------------- | ---------------------------------------------------------------------- |
+| `extrattor -x </path/to/archive1> </path/to/archive2> <...>`| Extract one or more arhive      |
+| `extrattor -i </path/to/archive1> </path/to/archive2> <...>`| Get info about archives       	|
+| `extrattor -p </path/to/archive1> </path/to/archive2> <...>`| Protect archives with password	|
+| `extrattor -v`       | Print version                                                          |
+| `extrattor -h`       | Print help                                                             |
 
 ## Contributing
 
