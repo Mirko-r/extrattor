@@ -151,10 +151,6 @@ list_formats(){
 extract(){
 	set "${!args[@]}"
 	
-	if [ $@ -lt 1 ]; then
-		print_help 1
-	fi
-
 	for i ; do
 
    		echo ""
@@ -195,10 +191,6 @@ extract(){
 
 info(){
 	set "${!args[@]}"
-	
-	if [ $@ -lt 1 ]; then 
-		print_help 1
-	fi 
 
 	for i; do
 
@@ -222,10 +214,6 @@ info(){
 
 password(){
 	set "${!args[@]}"
-	
-	if [ $@ -lt 1 ]; then
-		print_help 1
-	fi
 
 	for i; do
 
