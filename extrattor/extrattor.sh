@@ -41,51 +41,6 @@ progress_bar() {
   clean_line
 }
 
-print() {
-    echo -e "${bold}Extracting ${args[i]}.....${reset}"
-    echo ""
-    progress_bar 10
-    echo -e "${bold}\nDone!${reset}"
-}
-
-print_help(){
-	echo -e "${bold}USAGE:${reset}\n"
-	echo -e "$0 [options] <path/to/archive> <path/to/archive2> <...> "
-	echo -e "\n${bold}OPTIONS:${reset}\n"
-	echo -e "$0 {-h | --help} Show the help page"
-	echo -e "$0 {-v | --version} Print the version"
-	echo -e "$0 {-x | --extract} Extract archives"
-	echo -e "$0 [-i | --info] Get info about archives"
-	echo -e "$0 [-p | --password] Protect archives with password"
-	exit $1
-}
-
-print_version(){
-	echo -e  "
-                ${bold}:;,,;:${reset}
-              ${bold}:;;;::::;:::${reset}		   Extrattor, versione 1.5 (x86_64-pc-linux-gnu)
-         ${bold}:;;:::::c::ccccc::;;${reset}
-     ${bold};;;;:::::cccccccc:::ccc::;;;:${reset}	   Copyright (C) 2021 Mirko Rovere.
-  ${bold}::;;;;;::c::::::cccccc:::::::;,;;;;;; ${reset}	   Licenza GPLv3+: GNU GPL versione 3 o successiva <http://gnu.org/licenses/gpl.html>
-${bold}c,,;;:::;:::::::::::cccccc::;::;;;;,'.' ${reset}
-${bold}c..,;;,,;::::::::::::::;;:::;;,''''.... ${reset}  
-${bold}c....'.,;;;;;;:::;;;,;;;;;,,,'...'..... ${reset}
-${bold}c........''',;;;;:;;;,,,,'..'..... .... ${reset}   This is free software; you are free to change and redistribute it.
-${bold}c,,,,'.......','',;,'..''.....  ....... ${reset}   There is NO WARRANTY, to the extent permitted by law.
-${bold}c,,,;,'','.......',c'..............''...${reset}   
-${bold}c'',,,',MM;'''.....c... ......''..'....'${reset}
-${bold}c..',,',MM,,,,,,...c..........'...'.....${reset}
-${bold}c......'MM,',,,,',,c''..''...''.......  ${reset}
-${bold}c'........''',,,'',c''..'........   ....${reset}
-${bold}c,',''........''',,c,'.......... ......'${reset}
-     ${bold};',,,........'c'..............':${reset}
-         ${bold};''''.....c.   .......';${reset}
-            ${bold}:;,'''.c.......';${reset}
-                ${bold}:,,c'...;${reset}
-		  ${bold};c,${reset}
-"
-}
-
 ask() {
     local prompt default reply
 
@@ -132,6 +87,65 @@ prompt(){
   else
 	  echo -e "\n${bold}Aborting..${reset}\n"
   fi
+}
+
+print() {
+    echo -e "${bold}Extracting ${args[i]}.....${reset}"
+    echo ""
+    progress_bar 10
+    echo -e "${bold}\nDone!${reset}"
+}
+
+print_help(){
+	echo -e "${bold}USAGE:${reset}\n"
+	echo -e "$0 [options] <path/to/archive> <path/to/archive2> <...> "
+	echo -e "\n${bold}OPTIONS:${reset}\n"
+	echo -e "$0 {-h | --help} Show the help page"
+	echo -e "$0 {-l | --list_formats} List all compatible formats for each function"
+	echo -e "$0 {-v | --version} Print the version"
+	echo -e "$0 {-x | --extract} Extract archives"
+	echo -e "$0 [-i | --info] Get info about archives"
+	echo -e "$0 [-p | --password] Protect archives with password"
+	exit $1
+}
+
+print_version(){
+	echo -e  "
+                ${bold}:;,,;:${reset}
+              ${bold}:;;;::::;:::${reset}		   Extrattor, versione 1.5 (x86_64-pc-linux-gnu)
+         ${bold}:;;:::::c::ccccc::;;${reset}
+     ${bold};;;;:::::cccccccc:::ccc::;;;:${reset}	   Copyright (C) 2021 Mirko Rovere.
+  ${bold}::;;;;;::c::::::cccccc:::::::;,;;;;;; ${reset}	   Licenza GPLv3+: GNU GPL versione 3 o successiva <http://gnu.org/licenses/gpl.html>
+${bold}c,,;;:::;:::::::::::cccccc::;::;;;;,'.' ${reset}
+${bold}c..,;;,,;::::::::::::::;;:::;;,''''.... ${reset}  
+${bold}c....'.,;;;;;;:::;;;,;;;;;,,,'...'..... ${reset}
+${bold}c........''',;;;;:;;;,,,,'..'..... .... ${reset}   This is free software; you are free to change and redistribute it.
+${bold}c,,,,'.......','',;,'..''.....  ....... ${reset}   There is NO WARRANTY, to the extent permitted by law.
+${bold}c,,,;,'','.......',c'..............''...${reset}   
+${bold}c'',,,',MM;'''.....c... ......''..'....'${reset}
+${bold}c..',,',MM,,,,,,...c..........'...'.....${reset}
+${bold}c......'MM,',,,,',,c''..''...''.......  ${reset}
+${bold}c'........''',,,'',c''..'........   ....${reset}
+${bold}c,',''........''',,c,'.......... ......'${reset}
+     ${bold};',,,........'c'..............':${reset}
+         ${bold};''''.....c.   .......';${reset}
+            ${bold}:;,'''.c.......';${reset}
+                ${bold}:,,c'...;${reset}
+		  ${bold};c,${reset}
+"
+}
+
+list_formats(){
+	echo -e "\n${bold}FUNCTIONS EXTRACT (-x)\n"
+	echo -e "compatible formats:${reset}\n"
+	echo -e " (.arj), (.ace), (.bz2), (.dmg), (.gz), (.gpg), (.rar), (.tar.xz), (.tar.bz2), (.tar.gz)"
+	echo -e " (.tar.zst), (.tbz2), (.tgz), (.pax), (pax.z), (.z), (.zip), (.7z)\n\n"
+	echo -e "${bold}FUNCTION INFO (-i)\n"
+	echo -e "compatible formats:${reset}\n"
+	echo -e " (.tar.bz2), (.tar.gz), (.zip), (.7z)\n\n"
+	echo -e "${bold}FUNCTION PASSWORD (-p)\n"
+	echo -e "compatible formats:${reset}\n"
+	echo -e " (.zip)\n"
 }
 
 extract(){
@@ -226,7 +240,7 @@ fi
 args=("$@")
 
 #-------------------------- Parameters
-while getopts hvxip: par;do
+while getopts :hvxipl par;do
 	case $par in
 		h)		print_help 0						;;
 #		--help)		print_help						;;
@@ -238,6 +252,8 @@ while getopts hvxip: par;do
 #		--info)		info "${!args[@]}"					;;
 		p)		password "${args[@]}"					;;
 #		--password)	password "${!args[@]}"					;;
+		l)		list_formats 0						;;
+#		--list_formats	list_formats						;;
 		?)		print_help 2
 				;;
 	esac
