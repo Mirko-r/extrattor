@@ -64,6 +64,7 @@ chmod u+x extrattor.sh
 | `extrattor -p </path/to/archive1> </path/to/archive2> <...>`| Protect archives with password	|
 | `extrattor -v`       | Print version                                                          |
 | `extrattor -h`       | Print help                                                             |
+| `extrattor -l`       | List all compatible formats for each function				|
 
 ## Contributing
 
