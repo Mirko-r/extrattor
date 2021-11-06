@@ -160,19 +160,19 @@ extract(){
         		case "${args[i]}" in
             
 	           		#-------------------------Supported extensions
-				*.arj)      unarj x "${args[i]}" && print && prompt "${args[i]}"    			   ;;
-    				*.ace)      unace x "${args[i]}" && print && prompt "${args[i]}"     			   ;;
-	        		*.bz2)      bunzip2 "${args[i]}" && print && prompt "${args[i]}"                           ;;
-	        		*.dmg)      hdiutil mount "${args[i]}" && print && prompt "${args[i]}"                     ;;
-	        		*.gz)       gunzip "${args[i]}" && print && prompt "${args[i]}"                            ;;
-				*.gpg)	    gpg -d "${args[i]}" | tar -xvzf - && print && prompt "${args[i]}"		   ;;
-				*.rar)      7z x "${args[i]}" && print && prompt "${args[i]}"                              ;;
-	        		*.tar)      tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
-	        		*.tar.xz)   tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
+				          *.arj)      unarj x "${args[i]}" && print && prompt "${args[i]}"    			                 ;;
+    		          *.ace)      unace x "${args[i]}" && print && prompt "${args[i]}"     			                 ;;
+	        	      *.bz2)      bunzip2 "${args[i]}" && print && prompt "${args[i]}"                           ;;
+	        		    *.dmg)      hdiutil mount "${args[i]}" && print && prompt "${args[i]}"                     ;;
+	        		    *.gz)       gunzip "${args[i]}" && print && prompt "${args[i]}"                            ;;
+				          *.gpg)	    gpg -d "${args[i]}" | tar -xvzf - && print && prompt "${args[i]}"		           ;;
+				          *.rar)      7z x "${args[i]}" && print && prompt "${args[i]}"                              ;;
+	                *.tar)      tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
+	        		    *.tar.xz)   tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
             			*.tar.bz2)  tar -jxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
             			*.tar.gz)   tar -zxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
-				*.tar.zst)  tar -xvf "${args[i]}" && print && prompt "${args[i]}"			   ;; 
-				*.tbz2)     tar -jxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
+				          *.tar.zst)  tar -xvf "${args[i]}" && print && prompt "${args[i]}"			                     ;;
+				          *.tbz2)     tar -jxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
             			*.tgz)      tar -zxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
             			*.pax)      cat "${args[i]}" | pax -r && print && prompt "${args[i]}"                      ;;
             			*.pax.z)    uncompress "${args[i]}"  --stdout | pax -r && print && prompt "${args[i]}"     ;;
@@ -182,7 +182,7 @@ extract(){
 	    
 	          		#--------------------------- Errors
 	          		*.*)	echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' is not a supported file${reset}";
-			      	exit 1										;;
+			      	        exit 1										                                                             ;;
         		esac
   		fi
 
@@ -201,11 +201,11 @@ info(){
 				
 				*.tar.bz2)	tar -jtvf "${args[i]}"							;;
 				*.tar.gz) 	tar -ztvf "${args[i]}"							;;
-				*.zip) 		unzip -l "${args[i]}"							;;
-				*.7z)		7z 1 "${args[i]}"							;;
+				*.zip) 		unzip -l "${args[i]}"							    ;;
+				*.7z)		7z 1 "${args[i]}"							          ;;
 
 				*.*) echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' is not a supported file${reset}";
-				exit 1											;;
+				     exit 1											;;
 			esac
 		fi
 
@@ -225,7 +225,7 @@ password(){
 				*.zip) zip -e "${args[i]}_protected.zip" "${args[i]}";;
 
 				*.*) echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' is not a supported file${reset}";
-				exit 1											;;
+				     exit 1											;;
 			esac
 		fi
 
@@ -242,19 +242,18 @@ args=("$@")
 #-------------------------- Parameters
 while getopts :hvxipl par;do
 	case $par in
-		h)		print_help 0						;;
-#		--help)		print_help						;;
-		v)		print_version						;;
-#		--version)	print_version						;;
+		h)		print_help 0						      ;;
+#		--help)		print_help					      ;;
+		v)		print_version						      ;;
+#		--version)	print_version					  ;;
 		x)		extract "${args[@]}"					;;
-#		--extract)	extract "${!args[@]}"					;;
-		i)		info "${args[@]}"					;;
-#		--info)		info "${!args[@]}"					;;
+#		--extract)	extract "${!args[@]}"		;;
+		i)		info "${args[@]}"					    ;;
+#		--info)		info "${!args[@]}"			  ;;
 		p)		password "${args[@]}"					;;
-#		--password)	password "${!args[@]}"					;;
-		l)		list_formats 0						;;
-#		--list_formats	list_formats						;;
-		?)		print_help 2
-				;;
+#		--password)	password "${!args[@]}"	;;
+		l)		list_formats 0						    ;;
+#		--list_formats	list_formats				;;
+		?)		print_help 2                  ;;
 	esac
 done
