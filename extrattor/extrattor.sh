@@ -106,13 +106,14 @@ print_help(){
 	echo -e "$0 {-x | --extract} Extract archives"
 	echo -e "$0 [-i | --info] Get info about archives"
 	echo -e "$0 [-p | --password] Protect archives with password"
+  echo -e "$0 [-t | --test] Check archives integrity comparing the CRC"
 	exit $1
 }
 
 print_version(){
 	echo -e  "
                 ${bold}:;,,;:${reset}
-              ${bold}:;;;::::;:::${reset}		   Extrattor, versione 1.3.1 (x86_64-pc-linux-gnu)
+              ${bold}:;;;::::;:::${reset}		   Extrattor, versione 1.4 (x86_64-pc-linux-gnu)
          ${bold}:;;:::::c::ccccc::;;${reset}
      ${bold};;;;:::::cccccccc:::ccc::;;;:${reset}	   Copyright (C) 2021 Mirko Rovere.
   ${bold}::;;;;;::c::::::cccccc:::::::;,;;;;;; ${reset}	   Licenza GPLv3+: GNU GPL versione 3 o successiva <http://gnu.org/licenses/gpl.html>
@@ -145,7 +146,10 @@ list_formats(){
 	echo -e " (.tar.bz2), (.tar.gz), (.zip), (.7z)\n\n"
 	echo -e "${bold}FUNCTION PASSWORD (-p)\n"
 	echo -e "compatible formats:${reset}\n"
-	echo -e " (.zip)\n"
+	echo -e " (.zip)\n\n"
+  echo -e "${bold}FUNCTION TEST (-t)\n"
+  echo -e "compatible formats:${reset}\n"
+  echo -e " (.zip)\n\n"
 }
 
 extract(){
@@ -233,6 +237,24 @@ password(){
 
 }
 
+test(){
+  set "${!args[@]}"
+
+  for i; do
+
+    echo ""
+
+    if [ "${args[i]}" ]; then
+      case "${args[i]}" in
+
+        *.zip)  unzip -t "${args[i]}"    ;;
+        *.*)    echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' is not a supported file${reset}"
+      esac
+    fi
+
+  done
+}
+
 if [ $# -lt 1 ]; then
     print_help 1
 fi
@@ -240,20 +262,15 @@ fi
 args=("$@")
 
 #-------------------------- Parameters
-while getopts :hvxipl par;do
+while getopts :hvxiplt par;do
 	case $par in
 		h)		print_help 0						      ;;
-#		--help)		print_help					      ;;
 		v)		print_version						      ;;
-#		--version)	print_version					  ;;
 		x)		extract "${args[@]}"					;;
-#		--extract)	extract "${!args[@]}"		;;
 		i)		info "${args[@]}"					    ;;
-#		--info)		info "${!args[@]}"			  ;;
 		p)		password "${args[@]}"					;;
-#		--password)	password "${!args[@]}"	;;
 		l)		list_formats 0						    ;;
-#		--list_formats	list_formats				;;
+    t)    test "${args[@]}"             ;;
 		?)		print_help 2                  ;;
 	esac
 done
