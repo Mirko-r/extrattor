@@ -139,7 +139,7 @@ ${bold}c,',''........''',,c,'.......... ......'${reset}
 list_formats(){
 	echo -e "\n${bold}FUNCTIONS EXTRACT (-x)\n"
 	echo -e "compatible formats:${reset}\n"
-	echo -e " (.arj), (.ace), (.bz2), (.dmg), (.gz), (.gpg), (.rar), (.tar.xz), (.tar.bz2), (.tar.gz)"
+	echo -e " (.arj), (.ace), (.bz2), (.dmg), (.gz), (.gpg), (.lzma), (.rar), (.tar.xz), (.tar.bz2), (.tar.gz)"
 	echo -e " (.tar.zst), (.tbz2), (.tgz), (.pax), (pax.z), (.z), (.zip), (.7z)\n\n"
 	echo -e "${bold}FUNCTION INFO (-i)\n"
 	echo -e "compatible formats:${reset}\n"
@@ -170,6 +170,7 @@ extract(){
 	        		    *.dmg)      hdiutil mount "${args[i]}" && print && prompt "${args[i]}"                     ;;
 	        		    *.gz)       gunzip "${args[i]}" && print && prompt "${args[i]}"                            ;;
 				          *.gpg)	    gpg -d "${args[i]}" | tar -xvzf - && print && prompt "${args[i]}"		           ;;
+                  *.lzma)     unlzma "${args[i]}" && print && prompt "${args[i]}"                            ;;
 				          *.rar)      7z x "${args[i]}" && print && prompt "${args[i]}"                              ;;
 	                *.tar)      tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
 	        		    *.tar.xz)   tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
