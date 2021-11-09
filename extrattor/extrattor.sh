@@ -147,9 +147,9 @@ list_formats(){
 	echo -e "${bold}FUNCTION PASSWORD (-p)\n"
 	echo -e "compatible formats:${reset}\n"
 	echo -e " (.zip)\n\n"
-  echo -e "${bold}FUNCTION TEST (-t)\n"
-  echo -e "compatible formats:${reset}\n"
-  echo -e " (.zip)\n\n"
+  	echo -e "${bold}FUNCTION TEST (-t)\n"
+  	echo -e "compatible formats:${reset}\n"
+  	echo -e " (.zip)\n\n"
 }
 
 extract(){
@@ -164,20 +164,20 @@ extract(){
         		case "${args[i]}" in
             
 	           		#-------------------------Supported extensions
-				          *.arj)      unarj x "${args[i]}" && print && prompt "${args[i]}"    			                 ;;
-    		          *.ace)      unace x "${args[i]}" && print && prompt "${args[i]}"     			                 ;;
-	        	      *.bz2)      bunzip2 "${args[i]}" && print && prompt "${args[i]}"                           ;;
+				        *.arj)      unarj x "${args[i]}" && print && prompt "${args[i]}"    			                 ;;
+    		          	*.ace)      unace x "${args[i]}" && print && prompt "${args[i]}"     			                 ;;
+	        	      	*.bz2)      bunzip2 "${args[i]}" && print && prompt "${args[i]}"                           ;;
 	        		    *.dmg)      hdiutil mount "${args[i]}" && print && prompt "${args[i]}"                     ;;
 	        		    *.gz)       gunzip "${args[i]}" && print && prompt "${args[i]}"                            ;;
-				          *.gpg)	    gpg -d "${args[i]}" | tar -xvzf - && print && prompt "${args[i]}"		           ;;
-                  *.lzma)     unlzma "${args[i]}" && print && prompt "${args[i]}"                            ;;
-				          *.rar)      7z x "${args[i]}" && print && prompt "${args[i]}"                              ;;
-	                *.tar)      tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
+				        *.gpg)	    gpg -d "${args[i]}" | tar -xvzf - && print && prompt "${args[i]}"		           ;;
+                  		*.lzma)     unlzma "${args[i]}" && print && prompt "${args[i]}"                            ;;
+				        *.rar)      7z x "${args[i]}" && print && prompt "${args[i]}"                              ;;
+	                	*.tar)      tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
 	        		    *.tar.xz)   tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
             			*.tar.bz2)  tar -jxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
             			*.tar.gz)   tar -zxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
-				          *.tar.zst)  tar -xvf "${args[i]}" && print && prompt "${args[i]}"			                     ;;
-				          *.tbz2)     tar -jxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
+				        *.tar.zst)  tar -xvf "${args[i]}" && print && prompt "${args[i]}"			                     ;;
+				        *.tbz2)     tar -jxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
             			*.tgz)      tar -zxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
             			*.pax)      cat "${args[i]}" | pax -r && print && prompt "${args[i]}"                      ;;
             			*.pax.z)    uncompress "${args[i]}"  --stdout | pax -r && print && prompt "${args[i]}"     ;;
@@ -271,7 +271,7 @@ while getopts :hvxiplt par;do
 		i)		info "${args[@]}"					    ;;
 		p)		password "${args[@]}"					;;
 		l)		list_formats 0						    ;;
-    t)    test "${args[@]}"             ;;
+    	t)    test "${args[@]}"             ;;
 		?)		print_help 2                  ;;
 	esac
 done
