@@ -1,0 +1,10 @@
+name: build, test and push package
+    uses: glitchcrab/action-build-aur-package@main
+    with:
+      workdir: "./packagename-bin"
+      pushToAur: true
+      additionalPackages: "golangci-lint-bin go"
+    env:
+      AUR_SSH_KEY: ${{ secrets.AUR_SSH_KEY }}
+      GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
+      GIT_USER: ${{ secrets.GIT_USER }}
