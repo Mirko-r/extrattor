@@ -1,4 +1,0 @@
-UPSTREAM_REPO="https://github.com/Mirko-r/extrattor"
-AUR_REPO="ssh://aur@aur.archlinux.org/extrattor-git.git"
-PKG_NAME="extrattor-git"
-ASSET_FILE_STUB="_linux_amd64.tar.gz"
