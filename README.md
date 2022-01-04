@@ -34,6 +34,8 @@ makepkg -si
 
 ### Only stable version is provided
 
+Download from [Release page](https://github.com/Mirko-r/extrattor/releases) or
+
 ```bash
 git clone https://github.com/Mirko-r/extrattor.git && cd extrattor
 sudo dnf copr enable caarmi/unace
