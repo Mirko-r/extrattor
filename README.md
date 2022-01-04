@@ -30,6 +30,16 @@ git clone https://aur.archlinux.org/extrattor-git.git
 makepkg -si
 ```
 
+## Fedora (35)
+
+### Only stable version is provided
+
+```bash
+git clone https://github.com/Mirko-r/extrattor.git && cd extrattor
+sudo dnf copr enable caarmi/unace
+sudo dnf install ./builds/Fedora/extrattor-1.4-1.fc35.noarch.rpm
+```
+
 ## Debian\Ubuntu and derivatives
 
 Soon™ (seriously though, soon)
