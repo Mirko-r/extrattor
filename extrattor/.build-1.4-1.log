@@ -1,0 +1,32 @@
+
+Esecuzione(%install) in corso: /bin/sh -e /var/tmp/rpm-tmp.f3YKDZ
++ umask 022
++ cd /home/mirko/Progetti/extrattor/extrattor
++ '[' /root/rpmbuild/BUILDROOT/extrattor-1.4-1.x86_64 '!=' / ']'
++ rm -rf /root/rpmbuild/BUILDROOT/extrattor-1.4-1.x86_64
+++ dirname /root/rpmbuild/BUILDROOT/extrattor-1.4-1.x86_64
++ mkdir -p /root/rpmbuild/BUILDROOT
++ mkdir /root/rpmbuild/BUILDROOT/extrattor-1.4-1.x86_64
++ install -p -m 755 /home/mirko/Progetti/extrattor/extrattor/extrattor.sh /usr/bin/extrattor
++ /usr/lib/rpm/check-buildroot
++ /usr/lib/rpm/redhat/brp-ldconfig
++ /usr/lib/rpm/brp-compress
++ /usr/lib/rpm/brp-strip /usr/bin/strip
++ /usr/lib/rpm/brp-strip-comment-note /usr/bin/strip /usr/bin/objdump
++ /usr/lib/rpm/redhat/brp-strip-lto /usr/bin/strip
++ /usr/lib/rpm/brp-strip-static-archive /usr/bin/strip
++ /usr/lib/rpm/check-rpaths
++ /usr/lib/rpm/redhat/brp-mangle-shebangs
++ /usr/lib/rpm/redhat/brp-python-bytecompile '' 1 0
++ /usr/lib/rpm/redhat/brp-python-hardlink
+Elaborazione file: extrattor-1.4-1.x86_64
+Controllo per file non pacchettizzati in corso: /usr/lib/rpm/check-files /root/rpmbuild/BUILDROOT/extrattor-1.4-1.x86_64
+Scritto: /home/mirko/Progetti/extrattor/extrattor/extrattor-1.4-1.src.rpm
+Scritto: /home/mirko/Progetti/extrattor/extrattor/x86_64/extrattor-1.4-1.x86_64.rpm
+Esecuzione(%clean) in corso: /bin/sh -e /var/tmp/rpm-tmp.4Hk85C
++ umask 022
++ cd /home/mirko/Progetti/extrattor/extrattor
++ /usr/bin/rm -rf /root/rpmbuild/BUILDROOT/extrattor-1.4-1.x86_64
++ RPM_EC=0
+++ jobs -p
++ exit 0
