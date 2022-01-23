@@ -106,7 +106,7 @@ print_help(){
 	echo -e "$0 {-x | --extract} Extract archives"
 	echo -e "$0 [-i | --info] Get info about archives"
 	echo -e "$0 [-p | --password] Protect archives with password"
-  echo -e "$0 [-t | --test] Check archives integrity comparing the CRC"
+  	echo -e "$0 [-t | --test] Check archives integrity comparing the CRC"
 	exit "$1"
 }
 
@@ -184,7 +184,7 @@ extract(){
             			*.7z)       7z x "${args[i]}" && print && prompt "${args[i]}"                              ;;
 	    
 	          		#--------------------------- Errors
-	          		*.*)	echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' is not a supported file${reset}";
+	          		*.*)	zenity --error --text="'${args[i]}' is not a supported file";
 			      	        exit 1										                                                             ;;
         		esac
   		fi
@@ -207,7 +207,7 @@ info(){
 				*.zip) 		unzip -l "${args[i]}"							    ;;
 				*.7z)		7z 1 "${args[i]}"							          ;;
 
-				*.*) echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' is not a supported file${reset}";
+	          		*.*)	zenity --error --text="'${args[i]}' is not a supported file";
 				     exit 1											;;
 			esac
 		fi
@@ -227,7 +227,7 @@ password(){
 
 				*.zip) zip -e "${args[i]}_protected.zip" "${args[i]}";;
 
-				*.*) echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' is not a supported file${reset}";
+	          		*.*)	zenity --error --text="'${args[i]}' is not a supported file";
 				     exit 1											;;
 			esac
 		fi
@@ -247,7 +247,7 @@ test(){
       case "${args[i]}" in
 
         *.zip)  unzip -t "${args[i]}"    ;;
-        *.*)    echo -e "${red}${bold}ERROR: ${reset}${red}'${args[i]}' is not a supported file${reset}"
+	*.*)	zenity --error --text="'${args[i]}' is not a supported file";
       esac
     fi
 
