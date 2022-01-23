@@ -174,8 +174,6 @@ extract(){
 				*.rar)      7z x "${args[i]}" && print && prompt "${args[i]}"                              ;;
 	                	*.tar)      tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
 	        		*.tar.xz)   tar -xvf "${args[i]}" && print && prompt "${args[i]}"                          ;;
-            			*.tar.bz2)  tar -jxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
-            			*.tar.gz)   tar -zxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
 				*.tar.zst)  tar -xvf "${args[i]}" && print && prompt "${args[i]}"			                     ;;
 				*.tbz2)     tar -jxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
             			*.tgz)      tar -zxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
