@@ -107,7 +107,7 @@ print_help(){
 	echo -e "$0 [-i | --info] Get info about archives"
 	echo -e "$0 [-p | --password] Protect archives with password"
   echo -e "$0 [-t | --test] Check archives integrity comparing the CRC"
-	exit $1
+	exit "$1"
 }
 
 print_version(){
