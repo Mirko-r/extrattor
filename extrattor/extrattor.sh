@@ -5,7 +5,6 @@
 SLEEP_DURATION=${SLEEP_DURATION:=0.1}  
 
 # Ansi color code variables
-red="\e[0;91m"
 reset="\e[0m"
 bold="\e[1m"
 
