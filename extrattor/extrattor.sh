@@ -183,7 +183,7 @@ extract(){
             			*.7z)       7z x "${args[i]}" && print && prompt "${args[i]}"                              ;;
 	    
 	          		#--------------------------- Errors
-	          		*.*)	zenity --error --text="'${args[i]}' is not a supported file";
+	          		*.*)	zenity --error --text="${args[i]} is not a supported file";
 			      	        exit 1										                                                             ;;
         		esac
   		fi
@@ -206,7 +206,7 @@ info(){
 				*.zip) 		unzip -l "${args[i]}"							    ;;
 				*.7z)		7z 1 "${args[i]}"							          ;;
 
-	          		*.*)	zenity --error --text="'${args[i]}' is not a supported file";
+	          		*.*)	zenity --error --text="${args[i]} is not a supported file";
 				     exit 1											;;
 			esac
 		fi
@@ -226,7 +226,7 @@ password(){
 
 				*.zip) zip -e "${args[i]}_protected.zip" "${args[i]}";;
 
-	          		*.*)	zenity --error --text="'${args[i]}' is not a supported file";
+	          		*.*)	zenity --error --text="${args[i]} is not a supported file";
 				     exit 1											;;
 			esac
 		fi
@@ -246,7 +246,7 @@ test(){
       case "${args[i]}" in
 
         *.zip)  unzip -t "${args[i]}"    ;;
-	*.*)	zenity --error --text="'${args[i]}' is not a supported file";
+	*.*)	zenity --error --text="${args[i]} is not a supported file";
       esac
     fi
 
