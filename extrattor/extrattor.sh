@@ -177,7 +177,7 @@ extract(){
 				*.tar.zst)  tar -xvf "${args[i]}" && print && prompt "${args[i]}"			                     ;;
 				*.tbz2)     tar -jxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
             			*.tgz)      tar -zxvf "${args[i]}" && print && prompt "${args[i]}"                         ;;
-            			*.pax)      cat "${args[i]}" | pax -r && print && prompt "${args[i]}"                      ;;
+            			*.pax)      < "${args[i]}" pax -r && print && prompt "${args[i]}"                      ;;
             			*.pax.z)    uncompress "${args[i]}"  --stdout | pax -r && print && prompt "${args[i]}"     ;;
             			*.z)        uncompress "${args[i]}" && print && prompt "${args[i]}"                        ;;
             			*.zip)      unzip -q "${args[i]}" && print && prompt "${args[i]}"                          ;;
