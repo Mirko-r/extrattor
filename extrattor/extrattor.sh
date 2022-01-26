@@ -167,7 +167,7 @@ extract(){
     		          	*.ace)      unace x "${args[i]}" && print && prompt "${args[i]}"     			                 ;;
 	        	      	*.bz2)      bunzip2 "${args[i]}" && print && prompt "${args[i]}"                           ;;
 	        		*.dmg)      hdiutil mount "${args[i]}" && print && prompt "${args[i]}"                     ;;
-	        		*.gz)       gunzip "${args[i]}" && print && prompt "${args[i]}"                            ;;
+	        		*.gz)       gunzip -fN${Verbose+v} "${args[i]}" && print && prompt "${args[i]}"                            ;;
 				*.gpg)	    gpg -d "${args[i]}" | tar -xvzf - && print && prompt "${args[i]}"		           ;;
                   		*.lzma)     unlzma "${args[i]}" && print && prompt "${args[i]}"                            ;;
 				*.rar)      7z x "${args[i]}" && print && prompt "${args[i]}"                              ;;
