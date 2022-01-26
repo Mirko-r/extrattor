@@ -253,6 +253,9 @@ test(){
   done
 }
 
+## [cleaner.sh](./cleaner.sh) : 
+Simple script for cleaning Linux
+
 if [ $# -lt 1 ]; then
     print_help 1
 fi
