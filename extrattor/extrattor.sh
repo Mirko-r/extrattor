@@ -41,6 +41,9 @@ progress_bar() {
 }
 
 ask() {
+
+    [[ $# = 0 ]] && printf "%s: Missing arguments\n" "${FUNCNAME[0]}" && return 2
+
     local prompt default reply
 
     if [[ ${2:-} = 'Y' ]]; then
