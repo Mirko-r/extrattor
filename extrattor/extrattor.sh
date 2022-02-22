@@ -117,7 +117,7 @@ print_version(){
                 ${bold}:;,,;:${reset}
               ${bold}:;;;::::;:::${reset}		   Extrattor, versione 1.4 (x86_64-pc-linux-gnu)
          ${bold}:;;:::::c::ccccc::;;${reset}
-     ${bold};;;;:::::cccccccc:::ccc::;;;:${reset}	   Copyright (C) 2021 Mirko Rovere.
+     ${bold};;;;:::::cccccccc:::ccc::;;;:${reset}	   Copyright (C) 2021-2022 Mirko Rovere.
   ${bold}::;;;;;::c::::::cccccc:::::::;,;;;;;; ${reset}	   Licenza GPLv3+: GNU GPL versione 3 o successiva <http://gnu.org/licenses/gpl.html>
 ${bold}c,,;;:::;:::::::::::cccccc::;::;;;;,'.' ${reset}
 ${bold}c..,;;,,;::::::::::::::;;:::;;,''''.... ${reset}  
