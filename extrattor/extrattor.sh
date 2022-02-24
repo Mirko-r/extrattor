@@ -2,43 +2,9 @@
 #Mirko Rovere
 #
 
-SLEEP_DURATION=${SLEEP_DURATION:=0.1}  
-
 # Ansi color code variables
 reset="\e[0m"
 bold="\e[1m"
-
-progress_bar() {
-  local duration
-  local columns
-  local space_available
-  local fit_to_screen  
-  local space_reserved
-
-  space_reserved=6   
-  duration=${1}
-  columns=$(tput cols)
-  space_available=$(( columns-space_reserved ))
-
-  if (( duration < space_available )); then 
-  	fit_to_screen=1; 
-  else 
-    fit_to_screen=$(( duration / space_available )); 
-    fit_to_screen=$((fit_to_screen+1)); 
-  fi
-
-  already_done() { for ((done=0; done<(elapsed / fit_to_screen) ; done=done+1 )); do printf "▇"; done }
-  remaining() { for (( remain=(elapsed/fit_to_screen) ; remain<(duration/fit_to_screen) ; remain=remain+1 )); do printf " "; done }
-  percentage() { printf "| %s%%" $(( ((elapsed)*100)/(duration)*100/100)); }
-  clean_line() { printf "\r"; }
-
-  for (( elapsed=1; elapsed<=duration; elapsed=elapsed+1 )); do
-      already_done; remaining; percentage
-      sleep "$SLEEP_DURATION"
-      clean_line
-  done
-  clean_line
-}
 
 ask() {
 
@@ -80,15 +46,13 @@ ask() {
 }
 
 prompt(){
-  echo -e "${bold}Extracting $1....${reset}"
-  echo ""
-  progress_bar 10
+  spinner stop
   echo -e "${bold}\nDone!${reset}\n"
 
   if ask "Do you want to remove $1?" Y; then
-	  echo -e "\n${bold}Removing $1${reset}\n"
+          spinner --style 'bouncingBall' start "Removing $1.."
 	  rm "$1"
-	  progress_bar 10
+	  spinner stop
 	  echo -e "\n${bold}Done!${reset}\n"
   else
 	  echo -e "\n${bold}Aborting..${reset}\n"
@@ -160,8 +124,9 @@ extract(){
    
    		if [ "${args[i]}" ]; then
 
-        		case "${args[i]}" in
-            
+            		spinner --style 'bouncingBall' start "Extracting ${args[i]}.."
+        		
+			case "${args[i]}" in
 	           		#-------------------------Supported extensions
 				*.arj)      unarj x "${args[i]}" && prompt "${args[i]}"    			                 ;;
     		          	*.ace)      unace x "${args[i]}" && prompt "${args[i]}"     			                 ;;
