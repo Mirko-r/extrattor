@@ -1,6 +1,6 @@
 .\" Manpage for extrattor.
 .\" Visit the github page and create a pull request to correct errors or typos.
-.TH man 8  "25-02-2022" "1.4" "extrattor man page"
+.TH man 1  "25-02-2022" "1.4" "extrattor man page"
 
 .SH NAME
 extrattor \- Manage archives
