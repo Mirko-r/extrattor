@@ -1,0 +1,40 @@
+.\" Manpage for extrattor.
+.\" Visit the github page and create a pull request to correct errors or typos.
+.TH man 8  "25-02-2022" "1.4" "extrattor man page"
+
+.SH NAME
+extrattor \- Manage archives
+
+.SH SYNOPSIS
+extrattor [OPTIONS] [ARCHIVES]
+
+.SH DESCRIPTION
+A simple bash wrapper to manage one or more archives from the terminal
+
+.SH OPTIONS
+.IP "-h"
+Print help
+
+.IP "-v"
+Show version
+
+.IP "-l"
+List all compatible formats for each function
+
+.IP "-x"
+Extract one or more arhive
+
+.IP "-i"
+Get info about archives
+
+.IP "-p"
+Protect archives with password
+
+.IP "-t"
+Test archives comparing the CRC
+
+.SH BUGS
+No known bugs.
+
+.SH AUTHOR
+Mirko Rovere (04mirko@libero.it)
