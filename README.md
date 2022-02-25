@@ -77,6 +77,7 @@ chmod u+x extrattor.sh
 | `extrattor -i </path/to/archive1> </path/to/archive2> <...>`| Get info about archives       	|
 | `extrattor -p </path/to/archive1> </path/to/archive2> <...>`| Protect archives with password	|
 | `extrattor -t </path/to/archive1> </path/to/archive2> <...>`| Test archives comparing the CRC	|
+| `extrattor -f </path/to/archive1> </path/to/archive2> <...>`| Try to fix archives	|
 | `extrattor -v`       | Print version                                                          |
 | `extrattor -h`       | Print help                                                             |
 | `extrattor -l`       | List all compatible formats for each function				|

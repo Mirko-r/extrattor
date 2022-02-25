@@ -113,6 +113,9 @@ list_formats(){
   	echo -e "${bold}FUNCTION TEST (-t)\n"
   	echo -e "compatible formats:${reset}\n"
   	echo -e " (.zip)\n\n"
+	echo -e "${bold}FUNCTION FIX -f\n"
+	echo -e "compatible formats:${reset}\n"
+	echo -e " (.zip)\n\n"
 }
 
 extract(){
@@ -218,6 +221,23 @@ test(){
   done
 }
 
+fix(){
+	set "${!args[@]}"
+
+	for i; do
+		echo ""
+		if [ "${args[i]}" ]; then
+            		spinner --style 'bouncingBall' start "Fixing ${args[i]}.."
+			case "${args[i]}" in
+
+				*.zip)	zip -FFq "${args[i]}" --out "${args[i]}_repaired" ;;
+				*.*)	zenity --error --text="${args[i]} is not a supported file";
+			esac
+			spinner stop
+		fi
+	done
+}
+
 if [ $# -lt 1 ]; then
     print_help 1
 fi
@@ -225,7 +245,7 @@ fi
 args=("$@")
 
 #-------------------------- Parameters
-while getopts :hvxiplt par;do
+while getopts :hvxipltf par;do
 	case $par in
 		h)		print_help 0						      ;;
 		v)		print_version						      ;;
@@ -234,6 +254,7 @@ while getopts :hvxiplt par;do
 		p)		password "${args[@]}"					;;
 		l)		list_formats 0						    ;;
     		t)    		test "${args[@]}"             ;;
+		f)		fix  "${args[@]}"				;;
 		?)		print_help 2                  ;;
 	esac
 done

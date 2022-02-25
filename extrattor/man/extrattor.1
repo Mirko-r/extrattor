@@ -1,7 +1,8 @@
 .\" Manpage for extrattor.
 .\" Visit the github page and create a pull request to correct errors or typos.
 .TH man 1  "25-02-2022" "1.4" "extrattor man page"
-
+.nh
+.ad l
 .SH NAME
 extrattor \- Manage archives
 
@@ -12,26 +13,42 @@ extrattor [OPTIONS] [ARCHIVES]
 A simple bash wrapper to manage one or more archives from the terminal
 
 .SH OPTIONS
-.IP "-h"
-Print help
+.TP
 
-.IP "-v"
-Show version
+.TP
+.B \-h
+Print help.
 
-.IP "-l"
-List all compatible formats for each function
+.TP
+.B \-l
+List all compatible formats for each function.
 
-.IP "-x"
-Extract one or more arhive
+.TP
+.B \-v
+Print version.
 
-.IP "-i"
-Get info about archives
+.TP
+.B \-x
+Extract one or more arhive.
 
-.IP "-p"
-Protect archives with password
+.TP
+.B \-i
+Get info about archives.
 
-.IP "-t"
-Test archives comparing the CRC
+.TP
+.B \-p
+Protect archives with password, the output archives will be <FileName>_protected.zip.
+
+.TP
+.B \-t
+Test archives comparing the CRC.
+
+.TP
+.B \-f
+Try to fix archives, the output archives will be <FileName>_repaired.zip
+
+.RE
+If no arguments are provided 'extrattor \-h' will be performed.
 
 .SH BUGS
 No known bugs.
