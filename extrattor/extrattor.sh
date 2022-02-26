@@ -5,6 +5,7 @@
 # Ansi color code variables
 reset="\e[0m"
 bold="\e[1m"
+yellow="\033[1;33m"
 
 ask() {
 
@@ -76,27 +77,27 @@ print_help(){
 
 print_version(){
 	echo -e  "
-                ${bold}:;,,;:${reset}
-              ${bold}:;;;::::;:::${reset}		   Extrattor, versione 1.4 (x86_64-pc-linux-gnu)
-         ${bold}:;;:::::c::ccccc::;;${reset}
-     ${bold};;;;:::::cccccccc:::ccc::;;;:${reset}	   Copyright (C) 2021-2022 Mirko Rovere.
-  ${bold}::;;;;;::c::::::cccccc:::::::;,;;;;;; ${reset}	   Licenza GPLv3+: GNU GPL versione 3 o successiva <http://gnu.org/licenses/gpl.html>
-${bold}c,,;;:::;:::::::::::cccccc::;::;;;;,'.' ${reset}
-${bold}c..,;;,,;::::::::::::::;;:::;;,''''.... ${reset}  
-${bold}c....'.,;;;;;;:::;;;,;;;;;,,,'...'..... ${reset}
-${bold}c........''',;;;;:;;;,,,,'..'..... .... ${reset}   This is free software; you are free to change and redistribute it.
-${bold}c,,,,'.......','',;,'..''.....  ....... ${reset}   There is NO WARRANTY, to the extent permitted by law.
-${bold}c,,,;,'','.......',c'..............''...${reset}   
-${bold}c'',,,',MM;'''.....c... ......''..'....'${reset}
-${bold}c..',,',MM,,,,,,...c..........'...'.....${reset}
-${bold}c......'MM,',,,,',,c''..''...''.......  ${reset}
-${bold}c'........''',,,'',c''..'........   ....${reset}
-${bold}c,',''........''',,c,'.......... ......'${reset}
-     ${bold};',,,........'c'..............':${reset}
-         ${bold};''''.....c.   .......';${reset}
-            ${bold}:;,'''.c.......';${reset}
-                ${bold}:,,c'...;${reset}
-		  ${bold};c,${reset}
+               ${yellow} ${bold}:;,,;:${reset}
+              ${yellow}${bold}:;;;::::;:::${reset}		   Extrattor, versione 1.4 (x86_64-pc-linux-gnu)
+         ${yellow}${bold}:;;:::::c::ccccc::;;${reset}
+     ${yellow}${bold};;;;:::::cccccccc:::ccc::;;;:${reset}	   Copyright (C) 2021-2022 Mirko Rovere.
+  ${yellow}${bold}::;;;;;::c::::::cccccc:::::::;,;;;;;; ${reset}	   Licenza GPLv3+: GNU GPL versione 3 o successiva <http://gnu.org/licenses/gpl.html>
+${yellow}${bold}c,,;;:::;:::::::::::cccccc::;::;;;;,'.' ${reset}
+${yellow}${bold}c..,;;,,;::::::::::::::;;:::;;,''''.... ${reset}  
+${yellow}${bold}c....'.,;;;;;;:::;;;,;;;;;,,,'...'..... ${reset}
+${yellow}${bold}c........''',;;;;:;;;,,,,'..'..... .... ${reset}   This is free software; you are free to change and redistribute it.
+${yellow}${bold}c,,,,'.......','',;,'..''.....  ....... ${reset}   There is NO WARRANTY, to the extent permitted by law.
+${yellow}${bold}c,,,;,'','.......',c'..............''...${reset}   
+${yellow}${bold}c'',,,',MM;'''.....c... ......''..'....'${reset}
+${yellow}${bold}c..',,',MM,,,,,,...c..........'...'.....${reset}
+${yellow}${bold}c......'MM,',,,,',,c''..''...''.......  ${reset}
+${yellow}${bold}c'........''',,,'',c''..'........   ....${reset}
+${yellow}${bold}c,',''........''',,c,'.......... ......'${reset}
+     ${yellow}${bold};',,,........'c'..............':${reset}
+         ${yellow}${bold};''''.....c.   .......';${reset}
+            ${yellow}${bold}:;,'''.c.......';${reset}
+                ${yellow}${bold}:,,c'...;${reset}
+		  ${yellow}${bold};c,${reset}
 "
 }
 
