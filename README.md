@@ -54,12 +54,12 @@ Soon™ (seriously though, soon)
 
 - go to [the releases page](https://github.com/Mirko-r/extrattor/releases)
 - download the `extrattor.zip` of the version you want
-- open your terminal in the folder where you downloaded it and run:
+- open your terminal in the folder where you downloaded, extract it and run:
 
 ```bash
 cd extrattor
 chmod u+x install.sh
-./install.sh
+sudo ./install.sh
 ```
 
 ### Unstable
@@ -67,8 +67,8 @@ chmod u+x install.sh
 ```bash
 git clone https://github.com/Mirko-r/extrattor
 cd extrattor
-chmod u+x extrattor.sh
-./extrattor.sh
+chmod u+x install.sh
+sudo ./install.sh
 ```
 ## Sample Usage
 
