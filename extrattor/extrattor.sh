@@ -102,20 +102,20 @@ ${bold}c,',''........''',,c,'.......... ......'${reset}
 list_formats(){
 	echo -e "\n${bold}FUNCTIONS EXTRACT (-x)\n"
 	echo -e "compatible formats:${reset}\n"
-	echo -e " (.arj), (.ace), (.cpio), (.bz2), (.dmg), (.gz), (.gpg), (.lzma), (.rar), (.tar.xz), (.tar.bz2)"
-	echo -e " (.tar.gz), (.tar.zst), (.tbz2), (.tgz), (.pax), (pax.z), (.z), (.zip), (.7z)\n\n"
+	echo -e "\t(.arj), (.ace), (.cpio), (.bz2), (.dmg), (.gz), (.gpg), (.lzma), (.rar), (.tar.xz), (.tar.bz2)"
+	echo -e "\t(.tar.gz), (.tar.zst), (.tbz2), (.tgz), (.pax), (pax.z), (.z), (.zip), (.7z)\n\n"
 	echo -e "${bold}FUNCTION INFO (-i)\n"
 	echo -e "compatible formats:${reset}\n"
-	echo -e " (.cpio), (.tar.bz2), (.tar.gz), (.zip), (.7z)\n\n"
+	echo -e "\t(.cpio), (.tar.bz2), (.tar.gz), (.zip), (.7z)\n\n"
 	echo -e "${bold}FUNCTION PASSWORD (-p)\n"
 	echo -e "compatible formats:${reset}\n"
-	echo -e " (.zip)\n\n"
+	echo -e "\t(.zip)\n\n"
   	echo -e "${bold}FUNCTION TEST (-t)\n"
   	echo -e "compatible formats:${reset}\n"
-  	echo -e " (.zip)\n\n"
-	echo -e "${bold}FUNCTION FIX -f\n"
+  	echo -e "\t(.zip)\n\n"
+	echo -e "${bold}FUNCTION FIX (-f)\n"
 	echo -e "compatible formats:${reset}\n"
-	echo -e " (.zip)\n\n"
+	echo -e "\t(.zip)\n\n"
 }
 
 extract(){
