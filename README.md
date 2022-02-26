@@ -53,12 +53,13 @@ Soon™ (seriously though, soon)
 ### Stable
 
 - go to [the releases page](https://github.com/Mirko-r/extrattor/releases)
-- download the `extrattor.sh` of the version you want
+- download the `extrattor.zip` of the version you want
 - open your terminal in the folder where you downloaded it and run:
 
 ```bash
-chmod u+x extrattor.sh
-./extrattor.sh
+cd extrattor
+chmod u+x install.sh
+./install.sh
 ```
 
 ### Unstable
