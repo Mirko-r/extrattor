@@ -102,11 +102,11 @@ ${bold}c,',''........''',,c,'.......... ......'${reset}
 list_formats(){
 	echo -e "\n${bold}FUNCTIONS EXTRACT (-x)\n"
 	echo -e "compatible formats:${reset}\n"
-	echo -e " (.arj), (.ace), (.bz2), (.dmg), (.gz), (.gpg), (.lzma), (.rar), (.tar.xz), (.tar.bz2), (.tar.gz)"
-	echo -e " (.tar.zst), (.tbz2), (.tgz), (.pax), (pax.z), (.z), (.zip), (.7z)\n\n"
+	echo -e " (.arj), (.ace), (.cpio), (.bz2), (.dmg), (.gz), (.gpg), (.lzma), (.rar), (.tar.xz), (.tar.bz2)"
+	echo -e " (.tar.gz), (.tar.zst), (.tbz2), (.tgz), (.pax), (pax.z), (.z), (.zip), (.7z)\n\n"
 	echo -e "${bold}FUNCTION INFO (-i)\n"
 	echo -e "compatible formats:${reset}\n"
-	echo -e " (.tar.bz2), (.tar.gz), (.zip), (.7z)\n\n"
+	echo -e " (.cpio), (.tar.bz2), (.tar.gz), (.zip), (.7z)\n\n"
 	echo -e "${bold}FUNCTION PASSWORD (-p)\n"
 	echo -e "compatible formats:${reset}\n"
 	echo -e " (.zip)\n\n"
@@ -134,7 +134,8 @@ extract(){
 				*.arj)      unarj x "${args[i]}" && prompt "${args[i]}"    			                 ;;
     		          	*.ace)      unace x "${args[i]}" && prompt "${args[i]}"     			                 ;;
 	        	      	*.bz2)      bunzip2 "${args[i]}" && prompt "${args[i]}"                           ;;
-	        		*.dmg)      hdiutil mount "${args[i]}" && prompt "${args[i]}"                     ;;
+				*.cpio)	    cpio -i -vd < "${args[i]}" && prompt "${args[i]}"			  ;;
+				*.dmg)      hdiutil mount "${args[i]}" && prompt "${args[i]}"                     ;;
 	        		*.gz)       gunzip -fN${Verbose+v} "${args[i]}" && prompt "${args[i]}"                            ;;
 				*.gpg)	    gpg -d "${args[i]}" | tar -xvzf - && prompt "${args[i]}"		           ;;
                   		*.lzma)     unlzma "${args[i]}" && prompt "${args[i]}"                            ;;
@@ -169,6 +170,7 @@ info(){
 		if [ "${args[i]}" ]; then
 			case "${args[i]}" in
 				
+				*.cpio)		cpio -t < "${args[i]}"							;;
 				*.tar.bz2)	tar -jtvf "${args[i]}"							;;
 				*.tar.gz) 	tar -ztvf "${args[i]}"							;;
 				*.zip) 		unzip -l "${args[i]}"							    ;;
