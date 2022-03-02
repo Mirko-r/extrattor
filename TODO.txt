@@ -1,1 +1,1 @@
-Implement gui
+Implement libadwaita gui
