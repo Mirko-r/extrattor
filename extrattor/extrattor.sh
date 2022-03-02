@@ -51,6 +51,7 @@ prompt(){
   echo -e "${bold}\nDone!${reset}\n"
   if zenity --question --title="Deletion" --text="You want to remove $1?" --no-wrap; then
 	rm "$1"
+	zenity --info --title="Success" --text="$1 was removed" --no-wrap
   fi
 }
 
