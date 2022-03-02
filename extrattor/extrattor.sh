@@ -49,14 +49,8 @@ ask() {
 prompt(){
   spinner stop
   echo -e "${bold}\nDone!${reset}\n"
-
-  if ask "Do you want to remove $1?" Y; then
-          spinner --style 'bouncingBall' start "Removing $1.."
-	  rm "$1"
-	  spinner stop
-	  echo -e "\n${bold}Done!${reset}\n"
-  else
-	  echo -e "\n${bold}Aborting..${reset}\n"
+  if zenity --question --title="Deletion" --text="You want to remove $1?" --no-wrap; then
+	rm "$1"
   fi
 }
 
