@@ -1,1 +1,1 @@
-Implement tiny gui
+Implement gui
