@@ -71,7 +71,7 @@ print_help(){
 }
 
 print_version(){
-	echo -e  "
+	echo -e "
                ${yellow} ${bold}:;,,;:${reset}
               ${yellow}${bold}:;;;::::;:::${reset}		   Extrattor, versione 1.4 (x86_64-pc-linux-gnu)
          ${yellow}${bold}:;;:::::c::ccccc::;;${reset}
@@ -123,9 +123,9 @@ extract(){
    		echo ""
    
    		if [ "${args[i]}" ]; then
+			
+			spinner --style 'bouncingBall' start "Extracting ${args[i]}.."
 
-            		spinner --style 'bouncingBall' start "Extracting ${args[i]}.."
-        		
 			case "${args[i]}" in
 	           		#-------------------------Supported extensions
 				*.arj)      unarj x "${args[i]}" && prompt "${args[i]}"    			                 ;;
@@ -149,7 +149,7 @@ extract(){
             			*.7z)       7z x "${args[i]}" && prompt "${args[i]}"                              ;;
 	    
 	          		#--------------------------- Errors
-	          		*.*)	zenity --error --text="${args[i]} is not a supported file";
+	          		*.*)	zenity --error --title="Error" --text="${args[i]} is not a supported file";
 			      	        exit 1										                                                             ;;
         		esac
   		fi
@@ -173,7 +173,7 @@ info(){
 				*.zip) 		unzip -l "${args[i]}"							    ;;
 				*.7z)		7z 1 "${args[i]}"							          ;;
 
-	          		*.*)	zenity --error --text="${args[i]} is not a supported file";
+	          		*.*)	zenity --error --title="Error" --text="${args[i]} is not a supported file";
 				     exit 1											;;
 			esac
 		fi
@@ -193,7 +193,7 @@ password(){
 
 				*.zip) zip -e "${args[i]}_protected.zip" "${args[i]}";;
 
-	          		*.*)	zenity --error --text="${args[i]} is not a supported file";
+	          		*.*)	zenity --error --title="Error" --text="${args[i]} is not a supported file";
 				     exit 1											;;
 			esac
 		fi
@@ -213,7 +213,7 @@ test(){
       case "${args[i]}" in
 
         *.zip)  unzip -t "${args[i]}"    ;;
-	*.*)	zenity --error --text="${args[i]} is not a supported file";
+	*.*)	zenity --error --title="Error" --text="${args[i]} is not a supported file";
       esac
     fi
 
@@ -230,7 +230,7 @@ fix(){
 			case "${args[i]}" in
 
 				*.zip)	zip -FFq "${args[i]}" --out "${args[i]}_repaired" ;;
-				*.*)	zenity --error --text="${args[i]} is not a supported file";
+				*.*)	zenity --error --title="Error" --text="${args[i]} is not a supported file";
 			esac
 			spinner stop
 		fi
