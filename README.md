@@ -32,18 +32,6 @@ git clone https://aur.archlinux.org/extrattor-git.git
 makepkg -si
 ```
 
-## Fedora (35)
-
-### Only stable version is provided
-
-Download from [Release page](https://github.com/Mirko-r/extrattor/releases) or
-
-```bash
-git clone https://github.com/Mirko-r/extrattor.git && cd extrattor
-sudo dnf copr enable caarmi/unace
-sudo dnf install ./builds/Fedora/extrattor-1.4-1.fc35.noarch.rpm
-```
-
 ## Debian\Ubuntu and derivatives
 
 Soon™ (seriously though, soon)
@@ -52,6 +40,7 @@ Soon™ (seriously though, soon)
 
 ### Stable
 
+#### Method 1
 - go to [the releases page](https://github.com/Mirko-r/extrattor/releases)
 - download the `extrattor.zip` of the version you want
 - open your terminal in the folder where you downloaded, extract it and run:
@@ -62,11 +51,15 @@ chmod u+x install.sh
 sudo ./install.sh
 ```
 
-### Unstable
+#### Method 2
 
+Download zip from [here](https://github.com/Mirko-r/extrattor/tree/master/builds) and follow the instructions explained on **method 1**
+
+### Unstable
+ 
 ```bash
 git clone https://github.com/Mirko-r/extrattor
-cd extrattor
+cd extrattor/extrattor
 chmod u+x install.sh
 sudo ./install.sh
 ```
