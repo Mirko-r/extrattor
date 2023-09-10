@@ -10,28 +10,6 @@ A simple bash wrapper to manage one or more archives from the terminal
 
 # Installation
 
-## Arch Linux and derivatives (AUR)
-
-### Stable
-package: [extrattor](https://aur.archlinux.org/packages/extrattor)<br>
-
-Use an [AUR helper](https://wiki.archlinux.org/title/AUR_helpers) or
-
-```bash
-git clone https://aur.archlinux.org/extrattor.git
-makepkg -si
-```
-
-### Unstable
-package: [extrattor-git](https://aur.archlinux.org/packages/extrattor-git)<br>
-
-Use an [AUR helper](https://wiki.archlinux.org/title/AUR_helpers) or
-
-```bash
-git clone https://aur.archlinux.org/extrattor-git.git
-makepkg -si
-```
-
 ## Debian\Ubuntu and derivatives
 
 Soon™ (seriously though, soon)
@@ -84,6 +62,8 @@ sudo ./install.sh
 4. Push to the branch (`git push origin feature/fooBar`)
 5. Create a new Pull Request
 
+<!--
 ## 💲Support my work
 
 [![paypal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/stupidamentepod)
+-->
