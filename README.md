@@ -30,10 +30,10 @@ Soon™ (seriously though, soon)
 ### Unstable
  
 ```bash
-git clone https://github.com/Mirko-r/extrattor
-cd extrattor/extrattor
-chmod u+x install.sh
-sudo ./install.sh
+    git clone https://github.com/Mirko-r/extrattor
+    cd extrattor/extrattor
+    chmod u+x install.sh
+    sudo ./install.sh
 ```
 
 ## Sample Usage
