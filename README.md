@@ -35,18 +35,27 @@ cd extrattor/extrattor
 chmod u+x install.sh
 sudo ./install.sh
 ```
+
 ## Sample Usage
 
-| Command              | Function                                                               |
-| -------------------- | ---------------------------------------------------------------------- |
-| `extrattor -x </path/to/archive1> </path/to/archive2> <...>`| Extract one or more arhive      |
-| `extrattor -i </path/to/archive1> </path/to/archive2> <...>`| Get info about archives       	|
-| `extrattor -p </path/to/archive1> </path/to/archive2> <...>`| Protect archives with password	|
-| `extrattor -t </path/to/archive1> </path/to/archive2> <...>`| Test archives comparing the CRC	|
-| `extrattor -f </path/to/archive1> </path/to/archive2> <...>`| Try to fix archives	|
-| `extrattor -v`       | Print version                                                          |
-| `extrattor -h`       | Print help                                                             |
-| `extrattor -l`       | List all compatible formats for each function				|
+### Synopsis
+
+```bash 
+    extrattor [option] [archives]
+```
+
+### Commands list
+
+| Command                                     | Function                        |
+| --------------------------------------------|---------------------------------|
+| `extrattor -x </path/to/archive1/2/3> <...>`| Extract one or more arhive      |
+| `extrattor -i </path/to/archive1/2/3> <...>`| Get info about archives       	|
+| `extrattor -p </path/to/archive1/2/3> <...>`| Protect archives with password	|
+| `extrattor -t </path/to/archive1/2/3> <...>`| Test archives comparing the CRC	|
+| `extrattor -f </path/to/archive1/2/3> <...>`| Try to fix archives	            |
+| `extrattor -v`                              | Print version                   |
+| `extrattor -h`                              | Print help                      |
+| `extrattor -l`                              | List all compatible formats for each function|
 
 ## Contributing
 
